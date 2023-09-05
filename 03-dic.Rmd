@@ -1,0 +1,134 @@
+```{r}
+knitr::opts_chunk$set(comment = "", prompt = TRUE)
+```
+
+# Delineamento inteiramente casualizado
+
+O delineamento inteiramente casualizado (DIC) é o mais simples dos delineamentos, pois considera apenas dois dos princípios básicos da experimentação: a repetição e a casualização. Neste, os tratamentos são aleatoriamente atribuídos ao material experimental, sem o esforço de se restringir os tratamentos a alguma porção de área, material ou espaço. Ainda como característica, como não há uso do controle local o número de repetições por tratamento pode variar.É geralmente utilizado quando a variação do material experimental é relativamente pequena, o que geralmente ocorre em laboratórios e casas de vegetação.
+Como vantagens de sua utilização temos que é um experimento de fácil planejamento e que permite o número máximo de graus de liberdade do Resíduo. Em termos de análise é a mais simples quando comparado aos demais delineamentos experimentais e não apresentará confundimento caso os tratamentos tenham números diferentes de repetições. Entretanto, como desvantagens temos que o delineamento inteiramente casualizado é adequado aos experimentos com baixo número de tratamentos e material experimental homogêneo, o que nem sempre se consegue. Quando um grande número de tratamentos é utilizado, há um crescimento no material experimental, que pode inflacionar a variação experimental. Nesses casos o Delineamento Inteiramente Casualizado não é indicado.
+
+__Obtendo um croqui para um DIC__ 
+
+Para obtermos um croqui para um experimento com I tratamentos em um DIC, sendo o
+iésimo tratamento repetido ni vezes e o número total de parcelas $n=\sum_{i=1}^I n_i$
+
+__Exemplo__
+
+Suponha que desejamos comparar a produtividade de três variedades de soja, com três, quatro e três repetições respectivamente. O plano de casualização para o delineamento sistemático é dado por:
+
+ 
+## Aplicação no R studio
+ 
+__Planejamento e Croqui__
+
+```{r}
+#' # Planejamento de um experimento
+set.seed(1234)
+sample(rep(c("A", "B", "C", "D"), 5))
+
+
+#' ## Usando a biblioteca agricolae
+
+# Instalando
+# install.packages("agricolae", 
+#                  dependencies = TRUE)
+# Habilitando as funções
+library(agricolae)
+trt = LETTERS[1:4]
+delineamento <- design.crd(trt,
+                           r = 5,
+                           serie = 0)
+delineamento
+
+# Graficamente
+
+# install.packages("agricolaeplotr", 
+#                  dependencies = TRUE)
+library(agricolaeplotr)
+plot_design_crd(delineamento,
+                ncols = 4,
+                nrows = 5)
+
+# Para montar um croqui precisamos de um gride, definido por linhas e colunas
+delineamento$book$Linha <- rep(1:5, each = 4)
+delineamento$book$Coluna <- rep(1:4, times = 5)
+
+delineamento$book
+
+
+
+```
+
+__Importando dados de excel .xlsx__
+
+```{r}
+#Deve-se importar os arquivos .xlsx para o Rstudio
+library(readxl)
+dados1 <- read_xlsx("dados/aula2.2.xlsx")
+
+knitr::kable(dados1)
+```
+
+__Análise descritiva dos dados__
+
+```{r}
+library(ggplot2)
+ggplot(dados1, 
+       aes(x = trat, 
+           y = y)) +
+  geom_point() +
+  geom_point(stat = "summary",
+             fun = mean,
+             col = "red") +
+  annotate("point", 
+           x = dados1$trat, 
+           y = 26.75, 
+           colour = "blue") +
+  xlab("tratamentos") +
+  ylab("produtividade")
+
+ggplot(dados1,
+       aes(x = trat,
+           y = y)) +
+  geom_boxplot()
+
+```
+
+```{r}
+#' ## Estatísticas descritivas
+n <- with(dados1, tapply(y,trat, length))
+soma <- with(dados1, tapply(y,trat,sum))
+media <- with(dados1, tapply(y,trat,mean))
+variancia <- with(dados1, tapply(y,trat,var))
+desv.padr <- with(dados1, tapply(y,trat,sd))
+dist.int <- with(dados1, tapply(y,trat,IQR))
+```
+
+```{r}
+#' Criando uma função que calcula a amplitude
+f1 <- function(x) max(x)-min(x)
+amplitude <- with(dados1, tapply(y,trat,f1))
+
+resumo <- rbind(n, soma, media, variancia,
+                desv.padr, amplitude,dist.int)
+rownames(resumo) <- c("n", "Soma", "Média", 
+                      "Variância", "Desvio-padrão", 
+                      "Amplitude", "Amplitude Interquartílica")
+round(resumo,3)
+```
+
+__Análise da variância (ANOVA)__
+```{r}
+#' ## Análise de variância  
+#' 
+#' $H_0$: $\mu_1 = \mu_2 = \mu_3 = \mu_4$ *versus* 
+#' $H_1:$ Pelo menos duas médias de tratamentos diferem entre si.
+#' 
+modelo <- aov(y ~ trat, dados1)
+anova(modelo)
+```
+
+
+## Exercicíos 
+
+

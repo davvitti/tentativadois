@@ -1,0 +1,8 @@
+# Regressão polinomial 
+
+## Anova
+
+## Aplicação no R studio
+
+## Exercicíos 
+

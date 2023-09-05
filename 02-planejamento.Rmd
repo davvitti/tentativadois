@@ -1,0 +1,5 @@
+# Planejamento e princípios básicos {#planejamento}
+
+## Aplicação no R studio
+
+## Exercicíos 

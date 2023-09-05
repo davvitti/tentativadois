@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Capítulo 4 Delineamento inteiramente casualizado | Estatística experimental</title>
+  <meta name="description" content="<p>This is a minimal example of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::gitbook,
+set in the _output.yml file.</p>" />
+  <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Capítulo 4 Delineamento inteiramente casualizado | Estatística experimental" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="<p>This is a minimal example of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::gitbook,
+set in the _output.yml file.</p>" />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Capítulo 4 Delineamento inteiramente casualizado | Estatística experimental" />
+  
+  <meta name="twitter:description" content="<p>This is a minimal example of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::gitbook,
+set in the _output.yml file.</p>" />
+  
+
+<meta name="author" content="Davi Vitti" />
+
+
+<meta name="date" content="2023-09-05" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="planejamento.html"/>
+<link rel="next" href="comparação-de-médias.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introdução</a></li>
+<li class="chapter" data-level="2" data-path="relembrando-a-estatística-geral.html"><a href="relembrando-a-estatística-geral.html"><i class="fa fa-check"></i><b>2</b> Relembrando a Estatística geral</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="relembrando-a-estatística-geral.html"><a href="relembrando-a-estatística-geral.html#medidas-de-posição"><i class="fa fa-check"></i><b>2.1</b> Medidas de posição</a></li>
+<li class="chapter" data-level="2.2" data-path="relembrando-a-estatística-geral.html"><a href="relembrando-a-estatística-geral.html#medidas-de-dispersão"><i class="fa fa-check"></i><b>2.2</b> Medidas de dispersão</a>
+<ul>
+<li class="chapter" data-level="" data-path="relembrando-a-estatística-geral.html"><a href="relembrando-a-estatística-geral.html#média"><i class="fa fa-check"></i>Média</a></li>
+<li class="chapter" data-level="" data-path="relembrando-a-estatística-geral.html"><a href="relembrando-a-estatística-geral.html#variância"><i class="fa fa-check"></i>Variância</a></li>
+<li class="chapter" data-level="" data-path="relembrando-a-estatística-geral.html"><a href="relembrando-a-estatística-geral.html#desvio-padrão"><i class="fa fa-check"></i>Desvio-padrão</a></li>
+<li class="chapter" data-level="" data-path="relembrando-a-estatística-geral.html"><a href="relembrando-a-estatística-geral.html#coeficiente-de-variação"><i class="fa fa-check"></i>Coeficiente de Variação</a></li>
+<li class="chapter" data-level="2.2.1" data-path="relembrando-a-estatística-geral.html"><a href="relembrando-a-estatística-geral.html#aplicação-no-r-studio"><i class="fa fa-check"></i><b>2.2.1</b> Aplicação no R studio</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="relembrando-a-estatística-geral.html"><a href="relembrando-a-estatística-geral.html#exercicíos"><i class="fa fa-check"></i><b>2.3</b> Exercicíos</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="planejamento.html"><a href="planejamento.html"><i class="fa fa-check"></i><b>3</b> Planejamento e princípios básicos</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="planejamento.html"><a href="planejamento.html#aplicação-no-r-studio-1"><i class="fa fa-check"></i><b>3.1</b> Aplicação no R studio</a></li>
+<li class="chapter" data-level="3.2" data-path="planejamento.html"><a href="planejamento.html#exercicíos-1"><i class="fa fa-check"></i><b>3.2</b> Exercicíos</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="delineamento-inteiramente-casualizado.html"><a href="delineamento-inteiramente-casualizado.html"><i class="fa fa-check"></i><b>4</b> Delineamento inteiramente casualizado</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="delineamento-inteiramente-casualizado.html"><a href="delineamento-inteiramente-casualizado.html#aplicação-no-r-studio-2"><i class="fa fa-check"></i><b>4.1</b> Aplicação no R studio</a></li>
+<li class="chapter" data-level="4.2" data-path="delineamento-inteiramente-casualizado.html"><a href="delineamento-inteiramente-casualizado.html#exercicíos-2"><i class="fa fa-check"></i><b>4.2</b> Exercicíos</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="comparação-de-médias.html"><a href="comparação-de-médias.html"><i class="fa fa-check"></i><b>5</b> Comparação de médias</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="comparação-de-médias.html"><a href="comparação-de-médias.html#teste-de-tukey"><i class="fa fa-check"></i><b>5.1</b> Teste de Tukey</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="comparação-de-médias.html"><a href="comparação-de-médias.html#aplicação-no-r-studio-3"><i class="fa fa-check"></i><b>5.1.1</b> Aplicação no R studio</a></li>
+<li class="chapter" data-level="5.1.2" data-path="comparação-de-médias.html"><a href="comparação-de-médias.html#exercicíos-3"><i class="fa fa-check"></i><b>5.1.2</b> Exercicíos</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="comparação-de-médias.html"><a href="comparação-de-médias.html#teste-de-duncan"><i class="fa fa-check"></i><b>5.2</b> Teste de Duncan</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="comparação-de-médias.html"><a href="comparação-de-médias.html#aplicação-no-r-studio-4"><i class="fa fa-check"></i><b>5.2.1</b> Aplicação no R studio</a></li>
+<li class="chapter" data-level="5.2.2" data-path="comparação-de-médias.html"><a href="comparação-de-médias.html#exercicíos-4"><i class="fa fa-check"></i><b>5.2.2</b> Exercicíos</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="comparação-de-médias.html"><a href="comparação-de-médias.html#teste-de-dunnett"><i class="fa fa-check"></i><b>5.3</b> Teste de Dunnett</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="comparação-de-médias.html"><a href="comparação-de-médias.html#aplicação-no-r-studio-5"><i class="fa fa-check"></i><b>5.3.1</b> Aplicação no R studio</a></li>
+<li class="chapter" data-level="5.3.2" data-path="comparação-de-médias.html"><a href="comparação-de-médias.html#exercicíos-5"><i class="fa fa-check"></i><b>5.3.2</b> Exercicíos</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="comparação-de-médias.html"><a href="comparação-de-médias.html#teste-de-scheffé"><i class="fa fa-check"></i><b>5.4</b> Teste de Scheffé</a>
+<ul>
+<li class="chapter" data-level="5.4.1" data-path="comparação-de-médias.html"><a href="comparação-de-médias.html#aplicação-no-r-studio-6"><i class="fa fa-check"></i><b>5.4.1</b> Aplicação no R studio</a></li>
+<li class="chapter" data-level="5.4.2" data-path="comparação-de-médias.html"><a href="comparação-de-médias.html#exercicíos-6"><i class="fa fa-check"></i><b>5.4.2</b> Exercicíos</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="comparação-de-médias.html"><a href="comparação-de-médias.html#contrastes-ortogonais"><i class="fa fa-check"></i><b>5.5</b> Contrastes ortogonais</a>
+<ul>
+<li class="chapter" data-level="5.5.1" data-path="comparação-de-médias.html"><a href="comparação-de-médias.html#aplicação-no-r-studio-7"><i class="fa fa-check"></i><b>5.5.1</b> Aplicação no R studio</a></li>
+<li class="chapter" data-level="5.5.2" data-path="comparação-de-médias.html"><a href="comparação-de-médias.html#exercicíos-7"><i class="fa fa-check"></i><b>5.5.2</b> Exercicíos</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="regressão-polinomial.html"><a href="regressão-polinomial.html"><i class="fa fa-check"></i><b>6</b> Regressão polinomial</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="regressão-polinomial.html"><a href="regressão-polinomial.html#anova"><i class="fa fa-check"></i><b>6.1</b> Anova</a></li>
+<li class="chapter" data-level="6.2" data-path="regressão-polinomial.html"><a href="regressão-polinomial.html#aplicação-no-r-studio-8"><i class="fa fa-check"></i><b>6.2</b> Aplicação no R studio</a></li>
+<li class="chapter" data-level="6.3" data-path="regressão-polinomial.html"><a href="regressão-polinomial.html#exercicíos-8"><i class="fa fa-check"></i><b>6.3</b> Exercicíos</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="delineamento-em-blocos-casualizados.html"><a href="delineamento-em-blocos-casualizados.html"><i class="fa fa-check"></i><b>7</b> Delineamento em blocos casualizados</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="delineamento-em-blocos-casualizados.html"><a href="delineamento-em-blocos-casualizados.html#anova-1"><i class="fa fa-check"></i><b>7.1</b> Anova</a></li>
+<li class="chapter" data-level="7.2" data-path="delineamento-em-blocos-casualizados.html"><a href="delineamento-em-blocos-casualizados.html#aplicação-no-r-studio-9"><i class="fa fa-check"></i><b>7.2</b> Aplicação no R studio</a></li>
+<li class="chapter" data-level="7.3" data-path="delineamento-em-blocos-casualizados.html"><a href="delineamento-em-blocos-casualizados.html#exercicíos-9"><i class="fa fa-check"></i><b>7.3</b> Exercicíos</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="delineamento-quadrado-latino.html"><a href="delineamento-quadrado-latino.html"><i class="fa fa-check"></i><b>8</b> Delineamento quadrado latino</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="delineamento-quadrado-latino.html"><a href="delineamento-quadrado-latino.html#anova-2"><i class="fa fa-check"></i><b>8.1</b> Anova</a></li>
+<li class="chapter" data-level="8.2" data-path="delineamento-quadrado-latino.html"><a href="delineamento-quadrado-latino.html#aplicação-no-r-studio-10"><i class="fa fa-check"></i><b>8.2</b> Aplicação no R studio</a></li>
+<li class="chapter" data-level="8.3" data-path="delineamento-quadrado-latino.html"><a href="delineamento-quadrado-latino.html#exercicíos-10"><i class="fa fa-check"></i><b>8.3</b> Exercicíos</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="experimento-fatorial.html"><a href="experimento-fatorial.html"><i class="fa fa-check"></i><b>9</b> Experimento fatorial</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="experimento-fatorial.html"><a href="experimento-fatorial.html#anova-3"><i class="fa fa-check"></i><b>9.1</b> Anova</a></li>
+<li class="chapter" data-level="9.2" data-path="experimento-fatorial.html"><a href="experimento-fatorial.html#aplicação-no-r-studio-11"><i class="fa fa-check"></i><b>9.2</b> Aplicação no R studio</a></li>
+<li class="chapter" data-level="9.3" data-path="experimento-fatorial.html"><a href="experimento-fatorial.html#exercicíos-11"><i class="fa fa-check"></i><b>9.3</b> Exercicíos</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="experimento-em-parcelas-subdivididas-e-em-faixas.html"><a href="experimento-em-parcelas-subdivididas-e-em-faixas.html"><i class="fa fa-check"></i><b>10</b> Experimento em parcelas subdivididas e em faixas</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="experimento-em-parcelas-subdivididas-e-em-faixas.html"><a href="experimento-em-parcelas-subdivididas-e-em-faixas.html#anova-4"><i class="fa fa-check"></i><b>10.1</b> Anova</a></li>
+<li class="chapter" data-level="10.2" data-path="experimento-em-parcelas-subdivididas-e-em-faixas.html"><a href="experimento-em-parcelas-subdivididas-e-em-faixas.html#aplicação-no-r-studio-12"><i class="fa fa-check"></i><b>10.2</b> Aplicação no R studio</a></li>
+<li class="chapter" data-level="10.3" data-path="experimento-em-parcelas-subdivididas-e-em-faixas.html"><a href="experimento-em-parcelas-subdivididas-e-em-faixas.html#exercicíos-12"><i class="fa fa-check"></i><b>10.3</b> Exercicíos</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Estatística experimental</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="delineamento-inteiramente-casualizado" class="section level1 hasAnchor" number="4">
+<h1><span class="header-section-number">Capítulo 4</span> Delineamento inteiramente casualizado<a href="delineamento-inteiramente-casualizado.html#delineamento-inteiramente-casualizado" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>O delineamento inteiramente casualizado (DIC) é o mais simples dos delineamentos, pois considera apenas dois dos princípios básicos da experimentação: a repetição e a casualização. Neste, os tratamentos são aleatoriamente atribuídos ao material experimental, sem o esforço de se restringir os tratamentos a alguma porção de área, material ou espaço. Ainda como característica, como não há uso do controle local o número de repetições por tratamento pode variar.É geralmente utilizado quando a variação do material experimental é relativamente pequena, o que geralmente ocorre em laboratórios e casas de vegetação.
+Como vantagens de sua utilização temos que é um experimento de fácil planejamento e que permite o número máximo de graus de liberdade do Resíduo. Em termos de análise é a mais simples quando comparado aos demais delineamentos experimentais e não apresentará confundimento caso os tratamentos tenham números diferentes de repetições. Entretanto, como desvantagens temos que o delineamento inteiramente casualizado é adequado aos experimentos com baixo número de tratamentos e material experimental homogêneo, o que nem sempre se consegue. Quando um grande número de tratamentos é utilizado, há um crescimento no material experimental, que pode inflacionar a variação experimental. Nesses casos o Delineamento Inteiramente Casualizado não é indicado.</p>
+<p><strong>Obtendo um croqui para um DIC</strong></p>
+<p>Para obtermos um croqui para um experimento com I tratamentos em um DIC, sendo o
+iésimo tratamento repetido ni vezes e o número total de parcelas <span class="math inline">\(n=\sum_{i=1}^I n_i\)</span></p>
+<p><strong>Exemplo</strong></p>
+<p>Suponha que desejamos comparar a produtividade de três variedades de soja, com três, quatro e três repetições respectivamente. O plano de casualização para o delineamento sistemático é dado por:</p>
+<div id="aplicação-no-r-studio-2" class="section level2 hasAnchor" number="4.1">
+<h2><span class="header-section-number">4.1</span> Aplicação no R studio<a href="delineamento-inteiramente-casualizado.html#aplicação-no-r-studio-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Planejamento e Croqui</strong></p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="delineamento-inteiramente-casualizado.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co">#&#39; # Planejamento de um experimento</span></span>
+<span id="cb2-2"><a href="delineamento-inteiramente-casualizado.html#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">set.seed</span>(<span class="dv">1234</span>)</span>
+<span id="cb2-3"><a href="delineamento-inteiramente-casualizado.html#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">sample</span>(<span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>, <span class="st">&quot;C&quot;</span>, <span class="st">&quot;D&quot;</span>), <span class="dv">5</span>))</span></code></pre></div>
+<pre><code> [1] &quot;D&quot; &quot;A&quot; &quot;D&quot; &quot;C&quot; &quot;A&quot; &quot;C&quot; &quot;B&quot; &quot;D&quot; &quot;B&quot; &quot;C&quot; &quot;B&quot; &quot;B&quot; &quot;C&quot; &quot;D&quot; &quot;A&quot; &quot;D&quot; &quot;A&quot; &quot;A&quot; &quot;B&quot;
+[20] &quot;C&quot;</code></pre>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="delineamento-inteiramente-casualizado.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co">#&#39; ## Usando a biblioteca agricolae</span></span>
+<span id="cb4-2"><a href="delineamento-inteiramente-casualizado.html#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> </span>
+<span id="cb4-3"><a href="delineamento-inteiramente-casualizado.html#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="co"># Instalando</span></span>
+<span id="cb4-4"><a href="delineamento-inteiramente-casualizado.html#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="co"># install.packages(&quot;agricolae&quot;, </span></span>
+<span id="cb4-5"><a href="delineamento-inteiramente-casualizado.html#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="co">#                  dependencies = TRUE)</span></span>
+<span id="cb4-6"><a href="delineamento-inteiramente-casualizado.html#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="co"># Habilitando as funções</span></span>
+<span id="cb4-7"><a href="delineamento-inteiramente-casualizado.html#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">library</span>(agricolae)</span>
+<span id="cb4-8"><a href="delineamento-inteiramente-casualizado.html#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> trt <span class="ot">=</span> LETTERS[<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>]</span>
+<span id="cb4-9"><a href="delineamento-inteiramente-casualizado.html#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> delineamento <span class="ot">&lt;-</span> <span class="fu">design.crd</span>(trt,</span>
+<span id="cb4-10"><a href="delineamento-inteiramente-casualizado.html#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>                            <span class="at">r =</span> <span class="dv">5</span>,</span>
+<span id="cb4-11"><a href="delineamento-inteiramente-casualizado.html#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>                            <span class="at">serie =</span> <span class="dv">0</span>)</span>
+<span id="cb4-12"><a href="delineamento-inteiramente-casualizado.html#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> delineamento</span></code></pre></div>
+<pre><code>$parameters
+$parameters$design
+[1] &quot;crd&quot;
+
+$parameters$trt
+[1] &quot;A&quot; &quot;B&quot; &quot;C&quot; &quot;D&quot;
+
+$parameters$r
+[1] 5 5 5 5
+
+$parameters$serie
+[1] 0
+
+$parameters$seed
+[1] 1407173775
+
+$parameters$kinds
+[1] &quot;Super-Duper&quot;
+
+$parameters[[7]]
+[1] TRUE
+
+
+$book
+   plots r trt
+1      1 1   C
+2      2 1   B
+3      3 1   D
+4      4 2   D
+5      5 2   B
+6      6 2   C
+7      7 3   B
+8      8 3   D
+9      9 4   B
+10    10 4   D
+11    11 5   B
+12    12 1   A
+13    13 2   A
+14    14 3   C
+15    15 3   A
+16    16 4   A
+17    17 5   D
+18    18 4   C
+19    19 5   A
+20    20 5   C</code></pre>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="delineamento-inteiramente-casualizado.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Graficamente</span></span>
+<span id="cb6-2"><a href="delineamento-inteiramente-casualizado.html#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> </span>
+<span id="cb6-3"><a href="delineamento-inteiramente-casualizado.html#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="co"># install.packages(&quot;agricolaeplotr&quot;, </span></span>
+<span id="cb6-4"><a href="delineamento-inteiramente-casualizado.html#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="co">#                  dependencies = TRUE)</span></span>
+<span id="cb6-5"><a href="delineamento-inteiramente-casualizado.html#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">library</span>(agricolaeplotr)</span></code></pre></div>
+<pre><code>The legacy packages maptools, rgdal, and rgeos, underpinning the sp package,
+which was just loaded, will retire in October 2023.
+Please refer to R-spatial evolution reports for details, especially
+https://r-spatial.org/r/2023/05/15/evolution4.html.
+It may be desirable to make the sf package available;
+package maintainers should consider adding sf to Suggests:.
+The sp package is now running under evolution status 2
+     (status 2 uses the sf package in place of rgdal)</code></pre>
+<pre><code>
+Attaching package: &#39;agricolaeplotr&#39;</code></pre>
+<pre><code>The following object is masked from &#39;package:base&#39;:
+
+    summary</code></pre>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="delineamento-inteiramente-casualizado.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">plot_design_crd</span>(delineamento,</span>
+<span id="cb10-2"><a href="delineamento-inteiramente-casualizado.html#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>                 <span class="at">ncols =</span> <span class="dv">4</span>,</span>
+<span id="cb10-3"><a href="delineamento-inteiramente-casualizado.html#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>                 <span class="at">nrows =</span> <span class="dv">5</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="delineamento-inteiramente-casualizado.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Para montar um croqui precisamos de um gride, definido por linhas e colunas</span></span>
+<span id="cb11-2"><a href="delineamento-inteiramente-casualizado.html#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> delineamento<span class="sc">$</span>book<span class="sc">$</span>Linha <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="at">each =</span> <span class="dv">4</span>)</span>
+<span id="cb11-3"><a href="delineamento-inteiramente-casualizado.html#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> delineamento<span class="sc">$</span>book<span class="sc">$</span>Coluna <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>, <span class="at">times =</span> <span class="dv">5</span>)</span>
+<span id="cb11-4"><a href="delineamento-inteiramente-casualizado.html#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> </span>
+<span id="cb11-5"><a href="delineamento-inteiramente-casualizado.html#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> delineamento<span class="sc">$</span>book</span></code></pre></div>
+<pre><code>   plots r trt Linha Coluna
+1      1 1   C     1      1
+2      2 1   B     1      2
+3      3 1   D     1      3
+4      4 2   D     1      4
+5      5 2   B     2      1
+6      6 2   C     2      2
+7      7 3   B     2      3
+8      8 3   D     2      4
+9      9 4   B     3      1
+10    10 4   D     3      2
+11    11 5   B     3      3
+12    12 1   A     3      4
+13    13 2   A     4      1
+14    14 3   C     4      2
+15    15 3   A     4      3
+16    16 4   A     4      4
+17    17 5   D     5      1
+18    18 4   C     5      2
+19    19 5   A     5      3
+20    20 5   C     5      4</code></pre>
+<p><strong>Importando dados de excel .xlsx</strong></p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="delineamento-inteiramente-casualizado.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co">#Deve-se importar os arquivos .xlsx para o Rstudio</span></span>
+<span id="cb13-2"><a href="delineamento-inteiramente-casualizado.html#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">library</span>(readxl)</span>
+<span id="cb13-3"><a href="delineamento-inteiramente-casualizado.html#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> dados1 <span class="ot">&lt;-</span> <span class="fu">read_xlsx</span>(<span class="st">&quot;dados/aula2.2.xlsx&quot;</span>)</span>
+<span id="cb13-4"><a href="delineamento-inteiramente-casualizado.html#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> </span>
+<span id="cb13-5"><a href="delineamento-inteiramente-casualizado.html#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> knitr<span class="sc">::</span><span class="fu">kable</span>(dados1)</span></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="left">trat</th>
+<th align="right">y</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">A</td>
+<td align="right">25</td>
+</tr>
+<tr class="even">
+<td align="left">A</td>
+<td align="right">26</td>
+</tr>
+<tr class="odd">
+<td align="left">A</td>
+<td align="right">20</td>
+</tr>
+<tr class="even">
+<td align="left">A</td>
+<td align="right">23</td>
+</tr>
+<tr class="odd">
+<td align="left">A</td>
+<td align="right">21</td>
+</tr>
+<tr class="even">
+<td align="left">B</td>
+<td align="right">31</td>
+</tr>
+<tr class="odd">
+<td align="left">B</td>
+<td align="right">25</td>
+</tr>
+<tr class="even">
+<td align="left">B</td>
+<td align="right">28</td>
+</tr>
+<tr class="odd">
+<td align="left">B</td>
+<td align="right">27</td>
+</tr>
+<tr class="even">
+<td align="left">B</td>
+<td align="right">24</td>
+</tr>
+<tr class="odd">
+<td align="left">C</td>
+<td align="right">22</td>
+</tr>
+<tr class="even">
+<td align="left">C</td>
+<td align="right">26</td>
+</tr>
+<tr class="odd">
+<td align="left">C</td>
+<td align="right">28</td>
+</tr>
+<tr class="even">
+<td align="left">C</td>
+<td align="right">25</td>
+</tr>
+<tr class="odd">
+<td align="left">C</td>
+<td align="right">29</td>
+</tr>
+<tr class="even">
+<td align="left">D</td>
+<td align="right">33</td>
+</tr>
+<tr class="odd">
+<td align="left">D</td>
+<td align="right">29</td>
+</tr>
+<tr class="even">
+<td align="left">D</td>
+<td align="right">31</td>
+</tr>
+<tr class="odd">
+<td align="left">D</td>
+<td align="right">34</td>
+</tr>
+<tr class="even">
+<td align="left">D</td>
+<td align="right">28</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Análise descritiva dos dados</strong></p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="delineamento-inteiramente-casualizado.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">library</span>(ggplot2)</span>
+<span id="cb14-2"><a href="delineamento-inteiramente-casualizado.html#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">ggplot</span>(dados1, </span>
+<span id="cb14-3"><a href="delineamento-inteiramente-casualizado.html#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>        <span class="fu">aes</span>(<span class="at">x =</span> trat, </span>
+<span id="cb14-4"><a href="delineamento-inteiramente-casualizado.html#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>            <span class="at">y =</span> y)) <span class="sc">+</span></span>
+<span id="cb14-5"><a href="delineamento-inteiramente-casualizado.html#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb14-6"><a href="delineamento-inteiramente-casualizado.html#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">geom_point</span>(<span class="at">stat =</span> <span class="st">&quot;summary&quot;</span>,</span>
+<span id="cb14-7"><a href="delineamento-inteiramente-casualizado.html#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>              <span class="at">fun =</span> mean,</span>
+<span id="cb14-8"><a href="delineamento-inteiramente-casualizado.html#cb14-8" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>              <span class="at">col =</span> <span class="st">&quot;red&quot;</span>) <span class="sc">+</span></span>
+<span id="cb14-9"><a href="delineamento-inteiramente-casualizado.html#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">annotate</span>(<span class="st">&quot;point&quot;</span>, </span>
+<span id="cb14-10"><a href="delineamento-inteiramente-casualizado.html#cb14-10" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>            <span class="at">x =</span> dados1<span class="sc">$</span>trat, </span>
+<span id="cb14-11"><a href="delineamento-inteiramente-casualizado.html#cb14-11" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>            <span class="at">y =</span> <span class="fl">26.75</span>, </span>
+<span id="cb14-12"><a href="delineamento-inteiramente-casualizado.html#cb14-12" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>            <span class="at">colour =</span> <span class="st">&quot;blue&quot;</span>) <span class="sc">+</span></span>
+<span id="cb14-13"><a href="delineamento-inteiramente-casualizado.html#cb14-13" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">xlab</span>(<span class="st">&quot;tratamentos&quot;</span>) <span class="sc">+</span></span>
+<span id="cb14-14"><a href="delineamento-inteiramente-casualizado.html#cb14-14" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">ylab</span>(<span class="st">&quot;produtividade&quot;</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="delineamento-inteiramente-casualizado.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">ggplot</span>(dados1,</span>
+<span id="cb15-2"><a href="delineamento-inteiramente-casualizado.html#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>        <span class="fu">aes</span>(<span class="at">x =</span> trat,</span>
+<span id="cb15-3"><a href="delineamento-inteiramente-casualizado.html#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>            <span class="at">y =</span> y)) <span class="sc">+</span></span>
+<span id="cb15-4"><a href="delineamento-inteiramente-casualizado.html#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">geom_boxplot</span>()</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-4-2.png" width="672" /></p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="delineamento-inteiramente-casualizado.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co">#&#39; ## Estatísticas descritivas</span></span>
+<span id="cb16-2"><a href="delineamento-inteiramente-casualizado.html#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> n <span class="ot">&lt;-</span> <span class="fu">with</span>(dados1, <span class="fu">tapply</span>(y,trat, length))</span>
+<span id="cb16-3"><a href="delineamento-inteiramente-casualizado.html#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> soma <span class="ot">&lt;-</span> <span class="fu">with</span>(dados1, <span class="fu">tapply</span>(y,trat,sum))</span>
+<span id="cb16-4"><a href="delineamento-inteiramente-casualizado.html#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> media <span class="ot">&lt;-</span> <span class="fu">with</span>(dados1, <span class="fu">tapply</span>(y,trat,mean))</span>
+<span id="cb16-5"><a href="delineamento-inteiramente-casualizado.html#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> variancia <span class="ot">&lt;-</span> <span class="fu">with</span>(dados1, <span class="fu">tapply</span>(y,trat,var))</span>
+<span id="cb16-6"><a href="delineamento-inteiramente-casualizado.html#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> desv.padr <span class="ot">&lt;-</span> <span class="fu">with</span>(dados1, <span class="fu">tapply</span>(y,trat,sd))</span>
+<span id="cb16-7"><a href="delineamento-inteiramente-casualizado.html#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> dist.int <span class="ot">&lt;-</span> <span class="fu">with</span>(dados1, <span class="fu">tapply</span>(y,trat,IQR))</span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="delineamento-inteiramente-casualizado.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co">#&#39; Criando uma função que calcula a amplitude</span></span>
+<span id="cb17-2"><a href="delineamento-inteiramente-casualizado.html#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> f1 <span class="ot">&lt;-</span> <span class="cf">function</span>(x) <span class="fu">max</span>(x)<span class="sc">-</span><span class="fu">min</span>(x)</span>
+<span id="cb17-3"><a href="delineamento-inteiramente-casualizado.html#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> amplitude <span class="ot">&lt;-</span> <span class="fu">with</span>(dados1, <span class="fu">tapply</span>(y,trat,f1))</span>
+<span id="cb17-4"><a href="delineamento-inteiramente-casualizado.html#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> </span>
+<span id="cb17-5"><a href="delineamento-inteiramente-casualizado.html#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> resumo <span class="ot">&lt;-</span> <span class="fu">rbind</span>(n, soma, media, variancia,</span>
+<span id="cb17-6"><a href="delineamento-inteiramente-casualizado.html#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>                 desv.padr, amplitude,dist.int)</span>
+<span id="cb17-7"><a href="delineamento-inteiramente-casualizado.html#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">rownames</span>(resumo) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;n&quot;</span>, <span class="st">&quot;Soma&quot;</span>, <span class="st">&quot;Média&quot;</span>, </span>
+<span id="cb17-8"><a href="delineamento-inteiramente-casualizado.html#cb17-8" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>                       <span class="st">&quot;Variância&quot;</span>, <span class="st">&quot;Desvio-padrão&quot;</span>, </span>
+<span id="cb17-9"><a href="delineamento-inteiramente-casualizado.html#cb17-9" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>                       <span class="st">&quot;Amplitude&quot;</span>, <span class="st">&quot;Amplitude Interquartílica&quot;</span>)</span>
+<span id="cb17-10"><a href="delineamento-inteiramente-casualizado.html#cb17-10" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">round</span>(resumo,<span class="dv">3</span>)</span></code></pre></div>
+<pre><code>                               A       B       C      D
+n                           5.00   5.000   5.000   5.00
+Soma                      115.00 135.000 130.000 155.00
+Média                      23.00  27.000  26.000  31.00
+Variância                   6.50   7.500   7.500   6.50
+Desvio-padrão               2.55   2.739   2.739   2.55
+Amplitude                   6.00   7.000   7.000   6.00
+Amplitude Interquartílica   4.00   3.000   3.000   4.00</code></pre>
+<p><strong>Análise da variância (ANOVA)</strong></p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="delineamento-inteiramente-casualizado.html#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co">#&#39; ## Análise de variância  </span></span>
+<span id="cb19-2"><a href="delineamento-inteiramente-casualizado.html#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="co">#&#39; </span></span>
+<span id="cb19-3"><a href="delineamento-inteiramente-casualizado.html#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="co">#&#39; $H_0$: $\mu_1 = \mu_2 = \mu_3 = \mu_4$ *versus* </span></span>
+<span id="cb19-4"><a href="delineamento-inteiramente-casualizado.html#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="co">#&#39; $H_1:$ Pelo menos duas médias de tratamentos diferem entre si.</span></span>
+<span id="cb19-5"><a href="delineamento-inteiramente-casualizado.html#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="co">#&#39; </span></span>
+<span id="cb19-6"><a href="delineamento-inteiramente-casualizado.html#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> modelo <span class="ot">&lt;-</span> <span class="fu">aov</span>(y <span class="sc">~</span> trat, dados1)</span>
+<span id="cb19-7"><a href="delineamento-inteiramente-casualizado.html#cb19-7" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">anova</span>(modelo)</span></code></pre></div>
+<pre><code>Analysis of Variance Table
+
+Response: y
+          Df Sum Sq Mean Sq F value   Pr(&gt;F)   
+trat       3 163.75  54.583  7.7976 0.001976 **
+Residuals 16 112.00   7.000                    
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+</div>
+<div id="exercicíos-2" class="section level2 hasAnchor" number="4.2">
+<h2><span class="header-section-number">4.2</span> Exercicíos<a href="delineamento-inteiramente-casualizado.html#exercicíos-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="planejamento.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="comparação-de-médias.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/03-dic.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf", "_main.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

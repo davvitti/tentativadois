@@ -1,0 +1,19 @@
+# Relembrando a Estatística geral 
+
+
+## Medidas de posição 
+
+## Medidas de dispersão
+
+### Média {-}
+
+
+### Variância {-}
+
+### Desvio-padrão {-}
+
+### Coeficiente de Variação {-}
+
+### Aplicação no R studio
+
+## Exercicíos 

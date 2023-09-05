@@ -1,0 +1,8 @@
+# Delineamento em blocos casualizados 
+
+## Anova
+
+## Aplicação no R studio
+
+## Exercicíos 
+

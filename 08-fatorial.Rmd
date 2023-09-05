@@ -1,0 +1,7 @@
+# Experimento fatorial
+
+## Anova
+
+## Aplicação no R studio
+
+## Exercicíos 

@@ -1,0 +1,7 @@
+# Experimento em parcelas subdivididas e em faixas 
+
+## Anova
+
+## Aplicação no R studio
+
+## Exercicíos 

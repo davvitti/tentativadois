@@ -1,0 +1,8 @@
+# Delineamento quadrado latino
+
+## Anova
+
+## Aplicação no R studio
+
+## Exercicíos 
+
