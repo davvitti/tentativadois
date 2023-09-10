@@ -12,9 +12,78 @@ __Obtendo um croqui para um DIC__
 Para obtermos um croqui para um experimento com I tratamentos em um DIC, sendo o
 iésimo tratamento repetido ni vezes e o número total de parcelas $n=\sum_{i=1}^I n_i$
 
+(i) Enumerar as parcelas 1, 2, . . . , n
+(ii) Criar o delineamento sistemático, ou seja,
+alocar o tratamento 1 às parcelas 1, 2, . . . , n1
+alocar o tratamento 2 às parcelas n1 + 1, n1 + 2, . . . , n1 + n2
+e assim até as repetições do tratamento I.
+(iii) Escolha uma permutação de 1, 2, . . . , n e aplique ao delineamento.
+
 __Exemplo__
 
 Suponha que desejamos comparar a produtividade de três variedades de soja, com três, quatro e três repetições respectivamente. O plano de casualização para o delineamento sistemático é dado por:
+
+Ordem Padrão | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 |
+-------------|---|---|---|---|---|---|---|---|---|----|
+Variedade    | A | A | A | B | B | B | B | C | C | C  |
+
+Uma permutação:
+
+Parcelas     | 7 | 1 | 8 | 10 | 3 | 2 | 4 | 6 | 9 | 5 |
+-------------|---|---|---|----|---|---|---|---|---|---|
+Ordem Padrão | 1 | 2 | 3 |  4 | 5 | 6 | 7 | 8 | 9 | 10|
+
+E o plano de casualização é dado por:
+
+Parcela   |1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 |
+----------|--|---|---|---|---|---|---|---|---|----|
+Variedade | B| A | C | C | A | A | B | B | C | A  |
+
+__Análise dos dados__
+
+Entende-se como objetivo inicial de um experimento a verificação dos efeitos de tratamentos. Aqui será utilizada a Análise de Variância (ANOVA) para tal verificação. A ANOVA é utilizada na comparação de médias de dois ou mais tratamentos ou teste para a variância dos tratamentos, por meio do teste F (Fisher). Trata-se de uma extensão do teste t de Student, permitindo que o pesquisador compare qualquer número de médias, quando o efeito de tratamentos é fixo.
+
+__Modelo estatistico__ 
+
+O modelo estatístico para a análise dos dados oriundos de um DIC com um único fator de tratamentos é dado pela Equação 1.
+
+
+$y_{ij} = \mu + \tau_i + e_{ij} = \mu_i + e_{ij}$
+
+
+em que:
+
+- $y_{ij}$ é o valor observado na jésima repetição do iésimo tratamento, com:
+  - i = 1, ... , I e 
+  - j = 1, ... , ni
+  
+- $\mu$ é uma constante inerente a todas as observações, geralmente a média geral,
+
+- $\tau_i$ é o efeito do iésimo tratamento,
+
+- eij é o erro experimental, tal que $Eijiid \sim N(0, \sigma^2)$.
+
+Realizando-se a ANOVA, testamos as hipóteses:
+
+$H0 : \tau1 = \tau2 = ... = \tau I = 0$
+
+$H1 = Ha$ : $\tau i 6= 0$ para algum i.
+
+Havendo uma reparametrização do modelo apresentado na Equação 1, tal que $\mu + \tau_i = \alpha i$ em que $\alpha i$ é a média do iésimo tratamento, e:
+
+$yij = \alpha i + eij$ , (2)
+
+as hipóteses de interesse passam a ser
+
+$H0 : \alpha1 = \alpha2 = ... = \alpha I = \mu$
+
+$H1 = Ha$: pelo um contraste de médias difere de zero.
+
+Neste momento assumiremos que as pressuposições de normalidade e independência dos erros, bem a homogeneidade de suas variâncias garantidas. Assim, assumimos que eij corresponde a uma realização da variável Eij , tal que $Eijiid\sim N(0, \sigma^2)$ e os demais termos no modelo 1 são fixos. Cabe sailentar que o modelo citado é o modelo maximal, ou seja, aquele modelo mais complicado a ser considerado na análise.
+Desse modo, a esperança da variável aleatória Yij será
+
+$E(Yij ) = E(\mu + \tau_i + Eij ) = \mu + \tau_i + 0 = \mu + \tau_i$
+
 
  
 ## Aplicação no R studio
@@ -131,4 +200,35 @@ anova(modelo)
 
 ## Exercicíos 
 
+
+1) Os dados apresentados na Tabela 1 são referentes ao peso de espigas de milho, em kg/10m², em cada parcela (10 m²). São apresentados os dados de 5 genótipos avaliados em um delineamento inteiramente casualizado (DIC) com 4 repetições.
+
+
+
+Genótipos | I  |  II | III | IV  |
+----------|----|-----|-----|-----|          
+A         |5,95| 6,21| 5,40| 5,18|
+B         |5,07| 6,71| 5,46| 4,98|
+C         |4,82| 5,11| 4,68| 4,52|
+D         |3,87| 4,16| 4,11| 4,84|
+E         |5,53| 5,82| 4,29| 4,70|
+
+
+Considere os dados apresentados na Tabela.
+a) Faça um possível croqui de instalação para um novo experimento com o mesmo número de tratamentos (genótipos) e de repetições;
+b) Faça a análise exploratória dos dados de peso de espigas;
+c) Faça a análise de variância e interprete o resultado do teste F considerando o nível de significância 5%;
+
+
+2) Em um experimento de competição de dez cultivares de arroz para avaliar a produtividade, instalado em um delineamento inteiramente casualizado, os resultados (parciais) para a ANOVA foram os seguintes:
+
+Fonte   | GL |    SQ    | QM | F Cal | F Tab | 
+--------|----|----------|----|-------|-------|
+cultivar| x  | 17564523 | x  | 9.31  | 2.39  |
+Resíduo | x  |    x     | x  |    x  |  x    |
+Total   | 29 |    x     | x  |    x  |  x    |
+
+a) Complete o quadro da ANOVA
+
+b) Com base no resultado da ANOVA escreva as hipóteses e a conclusão 
 
