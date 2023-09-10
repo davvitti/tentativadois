@@ -29,7 +29,7 @@ set in the _output.yml file.</p>" />
 <meta name="author" content="Davi Vitti" />
 
 
-<meta name="date" content="2023-09-05" />
+<meta name="date" content="2023-09-10" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -143,7 +143,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">A Minimal Book Example</a></li>
+<li><a href="./">Estatística experimental</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introdução</a></li>
@@ -255,8 +255,141 @@ Como vantagens de sua utilização temos que é um experimento de fácil planeja
 <p><strong>Obtendo um croqui para um DIC</strong></p>
 <p>Para obtermos um croqui para um experimento com I tratamentos em um DIC, sendo o
 iésimo tratamento repetido ni vezes e o número total de parcelas <span class="math inline">\(n=\sum_{i=1}^I n_i\)</span></p>
+<ol style="list-style-type: lower-roman">
+<li>Enumerar as parcelas 1, 2, . . . , n</li>
+<li>Criar o delineamento sistemático, ou seja,
+alocar o tratamento 1 às parcelas 1, 2, . . . , n1
+alocar o tratamento 2 às parcelas n1 + 1, n1 + 2, . . . , n1 + n2
+e assim até as repetições do tratamento I.</li>
+<li>Escolha uma permutação de 1, 2, . . . , n e aplique ao delineamento.</li>
+</ol>
 <p><strong>Exemplo</strong></p>
 <p>Suponha que desejamos comparar a produtividade de três variedades de soja, com três, quatro e três repetições respectivamente. O plano de casualização para o delineamento sistemático é dado por:</p>
+<table>
+<thead>
+<tr class="header">
+<th>Ordem Padrão</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+<th>7</th>
+<th>8</th>
+<th>9</th>
+<th>10</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Variedade</td>
+<td>A</td>
+<td>A</td>
+<td>A</td>
+<td>B</td>
+<td>B</td>
+<td>B</td>
+<td>B</td>
+<td>C</td>
+<td>C</td>
+<td>C</td>
+</tr>
+</tbody>
+</table>
+<p>Uma permutação:</p>
+<table>
+<thead>
+<tr class="header">
+<th>Parcelas</th>
+<th>7</th>
+<th>1</th>
+<th>8</th>
+<th>10</th>
+<th>3</th>
+<th>2</th>
+<th>4</th>
+<th>6</th>
+<th>9</th>
+<th>5</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Ordem Padrão</td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+<td>4</td>
+<td>5</td>
+<td>6</td>
+<td>7</td>
+<td>8</td>
+<td>9</td>
+<td>10</td>
+</tr>
+</tbody>
+</table>
+<p>E o plano de casualização é dado por:</p>
+<table>
+<thead>
+<tr class="header">
+<th>Parcela</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+<th>7</th>
+<th>8</th>
+<th>9</th>
+<th>10</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Variedade</td>
+<td>B</td>
+<td>A</td>
+<td>C</td>
+<td>C</td>
+<td>A</td>
+<td>A</td>
+<td>B</td>
+<td>B</td>
+<td>C</td>
+<td>A</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Análise dos dados</strong></p>
+<p>Entende-se como objetivo inicial de um experimento a verificação dos efeitos de tratamentos. Aqui será utilizada a Análise de Variância (ANOVA) para tal verificação. A ANOVA é utilizada na comparação de médias de dois ou mais tratamentos ou teste para a variância dos tratamentos, por meio do teste F (Fisher). Trata-se de uma extensão do teste t de Student, permitindo que o pesquisador compare qualquer número de médias, quando o efeito de tratamentos é fixo.</p>
+<p><strong>Modelo estatistico</strong></p>
+<p>O modelo estatístico para a análise dos dados oriundos de um DIC com um único fator de tratamentos é dado pela Equação 1.</p>
+<p><span class="math inline">\(y_{ij} = \mu + \tau_i + e_{ij} = \mu_i + e_{ij}\)</span></p>
+<p>em que:</p>
+<ul>
+<li><p><span class="math inline">\(y_{ij}\)</span> é o valor observado na jésima repetição do iésimo tratamento, com:</p>
+<ul>
+<li>i = 1, … , I e</li>
+<li>j = 1, … , ni</li>
+</ul></li>
+<li><p><span class="math inline">\(\mu\)</span> é uma constante inerente a todas as observações, geralmente a média geral,</p></li>
+<li><p><span class="math inline">\(\tau_i\)</span> é o efeito do iésimo tratamento,</p></li>
+<li><p>eij é o erro experimental, tal que <span class="math inline">\(Eijiid \sim N(0, \sigma^2)\)</span>.</p></li>
+</ul>
+<p>Realizando-se a ANOVA, testamos as hipóteses:</p>
+<p><span class="math inline">\(H0 : \tau1 = \tau2 = ... = \tau I = 0\)</span></p>
+<p><span class="math inline">\(H1 = Ha\)</span> : <span class="math inline">\(\tau i 6= 0\)</span> para algum i.</p>
+<p>Havendo uma reparametrização do modelo apresentado na Equação 1, tal que <span class="math inline">\(\mu + \tau_i = \alpha i\)</span> em que <span class="math inline">\(\alpha i\)</span> é a média do iésimo tratamento, e:</p>
+<p><span class="math inline">\(yij = \alpha i + eij\)</span> , (2)</p>
+<p>as hipóteses de interesse passam a ser</p>
+<p><span class="math inline">\(H0 : \alpha1 = \alpha2 = ... = \alpha I = \mu\)</span></p>
+<p><span class="math inline">\(H1 = Ha\)</span>: pelo um contraste de médias difere de zero.</p>
+<p>Neste momento assumiremos que as pressuposições de normalidade e independência dos erros, bem a homogeneidade de suas variâncias garantidas. Assim, assumimos que eij corresponde a uma realização da variável Eij , tal que <span class="math inline">\(Eijiid\sim N(0, \sigma^2)\)</span> e os demais termos no modelo 1 são fixos. Cabe sailentar que o modelo citado é o modelo maximal, ou seja, aquele modelo mais complicado a ser considerado na análise.
+Desse modo, a esperança da variável aleatória Yij será</p>
+<p><span class="math inline">\(E(Yij ) = E(\mu + \tau_i + Eij ) = \mu + \tau_i + 0 = \mu + \tau_i\)</span></p>
 <div id="aplicação-no-r-studio-2" class="section level2 hasAnchor" number="4.1">
 <h2><span class="header-section-number">4.1</span> Aplicação no R studio<a href="delineamento-inteiramente-casualizado.html#aplicação-no-r-studio-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><strong>Planejamento e Croqui</strong></p>
@@ -531,6 +664,106 @@ Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&
 </div>
 <div id="exercicíos-2" class="section level2 hasAnchor" number="4.2">
 <h2><span class="header-section-number">4.2</span> Exercicíos<a href="delineamento-inteiramente-casualizado.html#exercicíos-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ol style="list-style-type: decimal">
+<li>Os dados apresentados na Tabela 1 são referentes ao peso de espigas de milho, em kg/10m², em cada parcela (10 m²). São apresentados os dados de 5 genótipos avaliados em um delineamento inteiramente casualizado (DIC) com 4 repetições.</li>
+</ol>
+<table>
+<thead>
+<tr class="header">
+<th>Genótipos</th>
+<th>I</th>
+<th>II</th>
+<th>III</th>
+<th>IV</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>A</td>
+<td>5,95</td>
+<td>6,21</td>
+<td>5,40</td>
+<td>5,18</td>
+</tr>
+<tr class="even">
+<td>B</td>
+<td>5,07</td>
+<td>6,71</td>
+<td>5,46</td>
+<td>4,98</td>
+</tr>
+<tr class="odd">
+<td>C</td>
+<td>4,82</td>
+<td>5,11</td>
+<td>4,68</td>
+<td>4,52</td>
+</tr>
+<tr class="even">
+<td>D</td>
+<td>3,87</td>
+<td>4,16</td>
+<td>4,11</td>
+<td>4,84</td>
+</tr>
+<tr class="odd">
+<td>E</td>
+<td>5,53</td>
+<td>5,82</td>
+<td>4,29</td>
+<td>4,70</td>
+</tr>
+</tbody>
+</table>
+<p>Considere os dados apresentados na Tabela.
+a) Faça um possível croqui de instalação para um novo experimento com o mesmo número de tratamentos (genótipos) e de repetições;
+b) Faça a análise exploratória dos dados de peso de espigas;
+c) Faça a análise de variância e interprete o resultado do teste F considerando o nível de significância 5%;</p>
+<ol start="2" style="list-style-type: decimal">
+<li>Em um experimento de competição de dez cultivares de arroz para avaliar a produtividade, instalado em um delineamento inteiramente casualizado, os resultados (parciais) para a ANOVA foram os seguintes:</li>
+</ol>
+<table>
+<thead>
+<tr class="header">
+<th>Fonte</th>
+<th>GL</th>
+<th>SQ</th>
+<th>QM</th>
+<th>F Cal</th>
+<th>F Tab</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>cultivar</td>
+<td>x</td>
+<td>17564523</td>
+<td>x</td>
+<td>9.31</td>
+<td>2.39</td>
+</tr>
+<tr class="even">
+<td>Resíduo</td>
+<td>x</td>
+<td>x</td>
+<td>x</td>
+<td>x</td>
+<td>x</td>
+</tr>
+<tr class="odd">
+<td>Total</td>
+<td>29</td>
+<td>x</td>
+<td>x</td>
+<td>x</td>
+<td>x</td>
+</tr>
+</tbody>
+</table>
+<ol style="list-style-type: lower-alpha">
+<li><p>Complete o quadro da ANOVA</p></li>
+<li><p>Com base no resultado da ANOVA escreva as hipóteses e a conclusão</p></li>
+</ol>
 
 </div>
 </div>
