@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.9.9)  13 SEP 2023 00:05
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.9.9)  13 SEP 2023 11:36
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -458,30 +458,34 @@ File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 ]
 Chapter 4.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 185.
+(Font)              <10> on input line 188.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 185.
+(Font)              <7> on input line 188.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 185.
-[11{c:/Users/Davi/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{c:/Users/Davi/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{c:/Users/Davi/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}]
+(Font)              <5> on input line 188.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[11]
 
 Package longtable Warning: Column widths have changed
-(longtable)                in table 4.1 on input line 212.
+(longtable)                in table 4.1 on input line 216.
 
 
 Package longtable Warning: Column widths have changed
-(longtable)                in table 4.2 on input line 223.
+(longtable)                in table 4.2 on input line 227.
 
 
 Package longtable Warning: Column widths have changed
-(longtable)                in table 4.3 on input line 234.
+(longtable)                in table 4.3 on input line 238.
 
-LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 250.
+[12{c:/Users/Davi/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{c:/Users/Davi/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{c:/Users/Davi/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}]
+LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 256.
 (c:/Users/Davi/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-) [12{c:/Users/Davi/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}]
+) [13{c:/Users/Davi/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}{c:/Users/Davi/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}]
 
-LaTeX Warning: Command \^ invalid in math mode on input line 307.
+LaTeX Warning: Command \^ invalid in math mode on input line 314.
 
 
 ! LaTeX Error: Unicode character − (U+2212)
@@ -491,15 +495,15 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.307 ... = \sum _{ij} \frac{(yij−y)^2}{(n−1)}
+l.314 ... = \sum _{ij} \frac{(yij−y)^2}{(n−1)}
                                                   \] 
 Here is how much of TeX's memory you used:
- 11177 strings out of 476893
- 172073 string characters out of 5807601
+ 11192 strings out of 476893
+ 172331 string characters out of 5807601
  1933801 words of memory out of 5000000
- 32242 multiletter control sequences out of 15000+600000
+ 32244 multiletter control sequences out of 15000+600000
  619089 words of font info for 81 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 75i,6n,79p,803b,525s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,6n,79p,803b,461s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 !  ==> Fatal error occurred, no output PDF file produced!

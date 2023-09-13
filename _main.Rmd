@@ -56,14 +56,15 @@ knitr::opts_chunk$set(comment = "", prompt = TRUE)
 
 # Delineamento inteiramente casualizado
 
+## Fundamentos
+
 O delineamento inteiramente casualizado (DIC) é o mais simples dos delineamentos, pois considera apenas dois dos princípios básicos da experimentação: a repetição e a casualização. Neste, os tratamentos são aleatoriamente atribuídos ao material experimental, sem o esforço de se restringir os tratamentos a alguma porção de área, material ou espaço. Ainda como característica, como não há uso do controle local o número de repetições por tratamento pode variar.É geralmente utilizado quando a variação do material experimental é relativamente pequena, o que geralmente ocorre em laboratórios e casas de vegetação.
 
 Como vantagens de sua utilização temos que é um experimento de fácil planejamento e que permite o número máximo de graus de liberdade do Resíduo. Em termos de análise é a mais simples quando comparado aos demais delineamentos experimentais e não apresentará confundimento caso os tratamentos tenham números diferentes de repetições. Entretanto, como desvantagens temos que o delineamento inteiramente casualizado é adequado aos experimentos com baixo número de tratamentos e material experimental homogêneo, o que nem sempre se consegue. Quando um grande número de tratamentos é utilizado, há um crescimento no material experimental, que pode inflacionar a variação experimental. Nesses casos o Delineamento Inteiramente Casualizado não é indicado.
 
-__Obtendo um croqui para um DIC__ 
+## Obtendo um croqui para um DIC  
 
-Para obtermos um croqui para um experimento com I tratamentos em um DIC, sendo o
-iésimo tratamento repetido ni vezes e o número total de parcelas $n=\sum_{i=1}^I n_i$
+Para obtermos um croqui para um experimento com I tratamentos em um DIC, sendo o iésimo tratamento repetido ni vezes e o número total de parcelas $n=\sum_{i=1}^I n_i$ (1)
 
 (i) Enumerar as parcelas 1, 2, . . . , n
 (ii) Criar o delineamento sistemático, ou seja,
@@ -72,7 +73,7 @@ alocar o tratamento 2 às parcelas n1 + 1, n1 + 2, . . . , n1 + n2
 e assim até as repetições do tratamento I.
 (iii) Escolha uma permutação de 1, 2, . . . , n e aplique ao delineamento.
 
-__Exemplo__
+### Exemplo
 
 Suponha que desejamos comparar a produtividade de três variedades de soja, com três, quatro e três repetições respectivamente. O plano de casualização para o delineamento sistemático é dado por:
 
@@ -92,16 +93,16 @@ Parcela   |1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 |
 ----------|--|---|---|---|---|---|---|---|---|----|
 Variedade | B| A | C | C | A | A | B | B | C | A  |
 
-__Análise dos dados__
+## Análise dos dados
 
 Entende-se como objetivo inicial de um experimento a verificação dos efeitos de tratamentos. Aqui será utilizada a Análise de Variância (ANOVA) para tal verificação. A ANOVA é utilizada na comparação de médias de dois ou mais tratamentos ou teste para a variância dos tratamentos, por meio do teste F (Fisher). Trata-se de uma extensão do teste t de Student, permitindo que o pesquisador compare qualquer número de médias, quando o efeito de tratamentos é fixo.
 
-__Modelo estatistico__ 
+### Modelo estatistico 
 
-O modelo estatístico para a análise dos dados oriundos de um DIC com um único fator de tratamentos é dado pela Equação 1.
+O modelo estatístico para a análise dos dados oriundos de um DIC com um único fator de tratamentos é dado pela Equação 2.
 
 
-$y_{ij} = \mu + \tau_i + e_{ij} = \mu_i + e_{ij}$
+$$y_{ij} = \mu + \tau_i + e_{ij} = \mu_i + e_{ij} (2)$$
 
 
 em que:
@@ -122,11 +123,11 @@ $H0 : \tau1 = \tau2 = ... = \tau I = 0$
 
 $H1 = Ha$ : $\tau i_6 = 0$ para algum i.
 
-Havendo uma reparametrização do modelo apresentado na Equação 1, tal que $\mu + \tau_i = \alpha i$ em que $\alpha i$ é a média do iésimo tratamento, e:
+Havendo uma reparametrização do modelo apresentado na Equação 2, tal que $\mu + \tau_i = \alpha i$ em que $\alpha i$ é a média do iésimo tratamento, é:
 
-$yij = \alpha i + eij$ , (2)
+$$yij = \alpha i + eij  (3)$$
 
-as hipóteses de interesse passam a ser
+As hipóteses de interesse passam a ser:
 
 $H0 : \alpha1 = \alpha2 = ... = \alpha I = \mu$
 
@@ -135,9 +136,9 @@ $H1 = Ha$: pelo um contraste de médias difere de zero.
 Neste momento assumiremos que as pressuposições de normalidade e independência dos erros, bem a homogeneidade de suas variâncias garantidas. Assim, assumimos que eij corresponde a uma realização da variável Eij , tal que $e_{ij} \overset{iid}{\sim}  N(0,\sigma^2)$ e os demais termos no modelo 1 são fixos. Cabe sailentar que o modelo citado é o modelo maximal, ou seja, aquele modelo mais complicado a ser considerado na análise.
 Desse modo, a esperança da variável aleatória Yij será
 
-$E(Yij ) = E(\mu + \tau_i + Eij ) = \mu + \tau_i + 0 = \mu + \tau_i$
+$$E(Yij ) = E(\mu + \tau_i + Eij ) = \mu + \tau_i + 0 = \mu + \tau_i (4)$$
 
-__Análise de variância__
+### Análise de variância
 
 A proposta da ANOVA consiste em decompor a variância total dos dados em parte atribuída aos efeitos de tratamentos e parte ao acaso.
 
@@ -185,7 +186,27 @@ Rejeita-se $H_0$ se $F_{cal} \geq F_{tab_{(\alpha, I-1, I(J-1))}}$, em que $\alp
 
 [Tabela F](https://docs.ufpr.br/~vayego/pedeefes/tab_sned.pdf)
 
-__Exemplo__
+### Coeficiente de variação
+
+
+número de repetições pode estar associado ao número de graus de liberdade do resíduo ; $$gl_{Res} \geq 12$$
+ 
+O CV é adimensional, pode-se comparar a dispersão de variáveis
+com diferentes unidades de medida.
+
+
+$$\displaystyle{CV_{\%} = 100\frac{\hat{\sigma}}{\hat{\mu}} = 100\frac{\sqrt{QM_{Res}}}{\bar{y}}}$$
+
+- CV $<$ 10% : baixo
+
+- 10% $<$ CV $>$ 20%  :médio
+
+- 20% $<$ CV $>$ 30%  :alto
+
+- CV $>$ 30% : muito alto
+       
+
+## Exemplo
 
 Considere os dados abaixo referentes à produtividade de milho (kg/100m$^2$) de quatro diferentes variedades, em um experimento instalado segundo o delineamento inteiramente casualizado, com cinco repetições.
 
@@ -216,26 +237,33 @@ Média        |23,00 | 27,00 | 26,00 | 31,00  |
 Variância    |6,50  |7,50   |7,50   | 6,50   | 
 Desvio-padrão|2,55  |2,74   | 2,74  | 2,55   | 
 
-
+Soma de Quadrados total
 $$SQ_{Total} = \displaystyle{\sum_{i=1}^4\sum_{j=1}^5y_{ij}^2 - \frac{\left(\sum_{i=1}^4\sum_{j=1}^5y_{ij}\right)^2}{4\times5}}$$
 $$ = \displaystyle{25^2 + 26^2 + \ldots + 28^2 - \frac{535^2}{20}} 
  = 275,75$$
  
+Soma de Quadrados de tratamentos 
 
 $$SQ_{Trat} = \displaystyle{\frac{1}{5}\sum_{i=1}^4 T_i^2 - \frac{\left(\sum_{i=1}^4\sum_{j=1}^5y_{ij}\right)^2}{4\times5}}$$
  $$= \displaystyle{\frac{1}{5}\left(115^2 + 135^2 + 130^2 + 155^2\right) - \frac{535^2}{20}}= 163,75$$
 
+Soma de Quadrados do Resíduo
 
 $$SQ_{Resíduo} = SQ_{Total} - SQ_{Trat}$$ 
  $$= 275,75 - 163,75 = 112,00$$
+
+
+Quadrado médio tratamentos
 
 $$QM_{Trat} = \displaystyle{\frac{SQ_{Trat}}{gl_{Trat}}}
 = \displaystyle{\frac{163,75}{3}} = 54,5833$$
 
 
-
+Quadrado médio do resíduo
 
 $$QM_{Resíduo} = \displaystyle{\frac{SQ_{Resíduo}}{gl_{Resíduo}}}=\displaystyle{\frac{112,00}{16}}= 7,0000$$
+
+F calculado
 
 $$F = \displaystyle{\frac{QM_{Trat}}{QM_{Resíduo}}}=\displaystyle{\frac{54,5833}{7,0000}}= 7,80$$
 
@@ -268,28 +296,9 @@ cat("Valor crítico da distribuição F:", valor_critico, "\n")
 Como $F = 7. 80 > 3. 24$ = FTab ($\alpha = 0. 05$, 3, 16), há evidências para rejeitarmos $H_0$ ao nível de 5% de significância. Desse modo, não podemos afirmar que todas as médias são iguais.
 
 
-__Coeficiente de variação__
-
-
-número de repetições pode estar associado ao número de graus de liberdade do resíduo ; $$gl_{Res} \geq 12$$
- 
-O CV é adimensional, pode-se comparar a dispersão de variáveis
-com diferentes unidades de medida.
-
-
-$$\displaystyle{CV_{\%} = 100\frac{\hat{\sigma}}{\hat{\mu}} = 100\frac{\sqrt{QM_{Res}}}{\bar{y}}}$$
-* CV $<$ 10% : baixo
-
-- 10% $<$ CV $>$ 20%  :médio
-
-- 20% $<$ CV $>$ 30%  :alto
-
-- CV $>$ 30% : muito alto
-       
-      
 ## Aplicação no R studio
  
-__Planejamento e Croqui__
+### Planejamento e Croqui
 
 ```{r}
 #' # Planejamento de um experimento
@@ -329,7 +338,7 @@ delineamento$book
 
 ```
 
-__Importando dados de excel .xlsx__
+### Importando dados de excel .xlsx
 
 ```{r}
 #Deve-se importar os arquivos .xlsx para o Rstudio
@@ -339,7 +348,7 @@ dados1 <- read_xlsx("dados/aula2.2.xlsx")
 knitr::kable(dados1)
 ```
 
-__Análise descritiva dos dados__
+### Análise descritiva dos dados
 
 ```{r}
 library(ggplot2)
@@ -387,7 +396,7 @@ rownames(resumo) <- c("n", "Soma", "Média",
 round(resumo,3)
 ```
 
-__Análise da variância (ANOVA)__
+### Análise da variância (ANOVA)
 ```{r}
 #' ## Análise de variância  
 #' 
@@ -416,8 +425,11 @@ E         |5,53| 5,82| 4,29| 4,70|
 
 
 Considere os dados apresentados na Tabela.
+
 a) Faça um possível croqui de instalação para um novo experimento com o mesmo número de tratamentos (genótipos) e de repetições;
+
 b) Faça a análise exploratória dos dados de peso de espigas;
+
 c) Faça a análise de variância e interprete o resultado do teste F considerando o nível de significância 5%;
 
 
@@ -434,7 +446,22 @@ a) Complete o quadro da ANOVA
 b) Com base no resultado da ANOVA escreva as hipóteses e a conclusão 
 
 
+3) Em um experimento realizado no detapartamento de zootecnia da Esalq foram encontras as seguintes concentrações de glicose no sangue ( mg/ 100ml )  de 5 raças de bovinos sendo 8 amostras por raça. Os resultados foram:
 
+
+Raças    |1  | 2  | 3  | 4  | 5  | 6  | 7  | 8  | 
+---------|-- |----|----|----|----|----|----|----|
+Nelore   |124| 111| 117| 110| 142| 116| 121| 142|
+Gir      |101| 98 | 121| 117| 106| 118| 108| 123| 
+Girolando|118| 127| 121| 121| 127| 120| 129| 138| 
+Holandês |125| 129| 148| 119| 139| 110| 122| 141|
+Senepol  |101| 103| 112| 107| 119| 106| 122| 118|
+
+a) Faça uma análise descritiva dos dados.
+
+b) Faça o quadro da ANOVA e responda qual hipótese seguir. 
+
+c) Como seria um possível planejamento para esse experimento?
 
 <!--chapter:end:03-dic.Rmd-->
 

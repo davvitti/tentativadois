@@ -167,8 +167,26 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="4" data-path="delineamento-inteiramente-casualizado.html"><a href="delineamento-inteiramente-casualizado.html"><i class="fa fa-check"></i><b>4</b> Delineamento inteiramente casualizado</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="delineamento-inteiramente-casualizado.html"><a href="delineamento-inteiramente-casualizado.html#aplicação-no-r-studio-2"><i class="fa fa-check"></i><b>4.1</b> Aplicação no R studio</a></li>
-<li class="chapter" data-level="4.2" data-path="delineamento-inteiramente-casualizado.html"><a href="delineamento-inteiramente-casualizado.html#exercicíos-2"><i class="fa fa-check"></i><b>4.2</b> Exercicíos</a></li>
+<li class="chapter" data-level="4.1" data-path="delineamento-inteiramente-casualizado.html"><a href="delineamento-inteiramente-casualizado.html#fundamentos"><i class="fa fa-check"></i><b>4.1</b> Fundamentos</a></li>
+<li class="chapter" data-level="4.2" data-path="delineamento-inteiramente-casualizado.html"><a href="delineamento-inteiramente-casualizado.html#obtendo-um-croqui-para-um-dic"><i class="fa fa-check"></i><b>4.2</b> Obtendo um croqui para um DIC</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="delineamento-inteiramente-casualizado.html"><a href="delineamento-inteiramente-casualizado.html#exemplo"><i class="fa fa-check"></i><b>4.2.1</b> Exemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="delineamento-inteiramente-casualizado.html"><a href="delineamento-inteiramente-casualizado.html#análise-dos-dados"><i class="fa fa-check"></i><b>4.3</b> Análise dos dados</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="delineamento-inteiramente-casualizado.html"><a href="delineamento-inteiramente-casualizado.html#modelo-estatistico"><i class="fa fa-check"></i><b>4.3.1</b> Modelo estatistico</a></li>
+<li class="chapter" data-level="4.3.2" data-path="delineamento-inteiramente-casualizado.html"><a href="delineamento-inteiramente-casualizado.html#análise-de-variância"><i class="fa fa-check"></i><b>4.3.2</b> Análise de variância</a></li>
+<li class="chapter" data-level="4.3.3" data-path="delineamento-inteiramente-casualizado.html"><a href="delineamento-inteiramente-casualizado.html#coeficiente-de-variação-1"><i class="fa fa-check"></i><b>4.3.3</b> Coeficiente de variação</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="delineamento-inteiramente-casualizado.html"><a href="delineamento-inteiramente-casualizado.html#exemplo-1"><i class="fa fa-check"></i><b>4.4</b> Exemplo</a></li>
+<li class="chapter" data-level="4.5" data-path="delineamento-inteiramente-casualizado.html"><a href="delineamento-inteiramente-casualizado.html#aplicação-no-r-studio-2"><i class="fa fa-check"></i><b>4.5</b> Aplicação no R studio</a>
+<ul>
+<li class="chapter" data-level="4.5.1" data-path="delineamento-inteiramente-casualizado.html"><a href="delineamento-inteiramente-casualizado.html#planejamento-e-croqui"><i class="fa fa-check"></i><b>4.5.1</b> Planejamento e Croqui</a></li>
+<li class="chapter" data-level="4.5.2" data-path="delineamento-inteiramente-casualizado.html"><a href="delineamento-inteiramente-casualizado.html#importando-dados-de-excel-.xlsx"><i class="fa fa-check"></i><b>4.5.2</b> Importando dados de excel .xlsx</a></li>
+<li class="chapter" data-level="4.5.3" data-path="delineamento-inteiramente-casualizado.html"><a href="delineamento-inteiramente-casualizado.html#análise-descritiva-dos-dados"><i class="fa fa-check"></i><b>4.5.3</b> Análise descritiva dos dados</a></li>
+<li class="chapter" data-level="4.5.4" data-path="delineamento-inteiramente-casualizado.html"><a href="delineamento-inteiramente-casualizado.html#análise-da-variância-anova"><i class="fa fa-check"></i><b>4.5.4</b> Análise da variância (ANOVA)</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="delineamento-inteiramente-casualizado.html"><a href="delineamento-inteiramente-casualizado.html#exercicíos-2"><i class="fa fa-check"></i><b>4.6</b> Exercicíos</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="comparação-de-médias.html"><a href="comparação-de-médias.html"><i class="fa fa-check"></i><b>5</b> Comparação de médias</a>
 <ul>
@@ -250,11 +268,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="delineamento-inteiramente-casualizado" class="section level1 hasAnchor" number="4">
 <h1><span class="header-section-number">Capítulo 4</span> Delineamento inteiramente casualizado<a href="delineamento-inteiramente-casualizado.html#delineamento-inteiramente-casualizado" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="fundamentos" class="section level2 hasAnchor" number="4.1">
+<h2><span class="header-section-number">4.1</span> Fundamentos<a href="delineamento-inteiramente-casualizado.html#fundamentos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>O delineamento inteiramente casualizado (DIC) é o mais simples dos delineamentos, pois considera apenas dois dos princípios básicos da experimentação: a repetição e a casualização. Neste, os tratamentos são aleatoriamente atribuídos ao material experimental, sem o esforço de se restringir os tratamentos a alguma porção de área, material ou espaço. Ainda como característica, como não há uso do controle local o número de repetições por tratamento pode variar.É geralmente utilizado quando a variação do material experimental é relativamente pequena, o que geralmente ocorre em laboratórios e casas de vegetação.</p>
 <p>Como vantagens de sua utilização temos que é um experimento de fácil planejamento e que permite o número máximo de graus de liberdade do Resíduo. Em termos de análise é a mais simples quando comparado aos demais delineamentos experimentais e não apresentará confundimento caso os tratamentos tenham números diferentes de repetições. Entretanto, como desvantagens temos que o delineamento inteiramente casualizado é adequado aos experimentos com baixo número de tratamentos e material experimental homogêneo, o que nem sempre se consegue. Quando um grande número de tratamentos é utilizado, há um crescimento no material experimental, que pode inflacionar a variação experimental. Nesses casos o Delineamento Inteiramente Casualizado não é indicado.</p>
-<p><strong>Obtendo um croqui para um DIC</strong></p>
-<p>Para obtermos um croqui para um experimento com I tratamentos em um DIC, sendo o
-iésimo tratamento repetido ni vezes e o número total de parcelas <span class="math inline">\(n=\sum_{i=1}^I n_i\)</span></p>
+</div>
+<div id="obtendo-um-croqui-para-um-dic" class="section level2 hasAnchor" number="4.2">
+<h2><span class="header-section-number">4.2</span> Obtendo um croqui para um DIC<a href="delineamento-inteiramente-casualizado.html#obtendo-um-croqui-para-um-dic" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Para obtermos um croqui para um experimento com I tratamentos em um DIC, sendo o iésimo tratamento repetido ni vezes e o número total de parcelas <span class="math inline">\(n=\sum_{i=1}^I n_i\)</span> (1)</p>
 <ol style="list-style-type: lower-roman">
 <li>Enumerar as parcelas 1, 2, . . . , n</li>
 <li>Criar o delineamento sistemático, ou seja,
@@ -263,7 +284,8 @@ alocar o tratamento 2 às parcelas n1 + 1, n1 + 2, . . . , n1 + n2
 e assim até as repetições do tratamento I.</li>
 <li>Escolha uma permutação de 1, 2, . . . , n e aplique ao delineamento.</li>
 </ol>
-<p><strong>Exemplo</strong></p>
+<div id="exemplo" class="section level3 hasAnchor" number="4.2.1">
+<h3><span class="header-section-number">4.2.1</span> Exemplo<a href="delineamento-inteiramente-casualizado.html#exemplo" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Suponha que desejamos comparar a produtividade de três variedades de soja, com três, quatro e três repetições respectivamente. O plano de casualização para o delineamento sistemático é dado por:</p>
 <table>
 <thead>
@@ -363,11 +385,15 @@ e assim até as repetições do tratamento I.</li>
 </tr>
 </tbody>
 </table>
-<p><strong>Análise dos dados</strong></p>
+</div>
+</div>
+<div id="análise-dos-dados" class="section level2 hasAnchor" number="4.3">
+<h2><span class="header-section-number">4.3</span> Análise dos dados<a href="delineamento-inteiramente-casualizado.html#análise-dos-dados" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Entende-se como objetivo inicial de um experimento a verificação dos efeitos de tratamentos. Aqui será utilizada a Análise de Variância (ANOVA) para tal verificação. A ANOVA é utilizada na comparação de médias de dois ou mais tratamentos ou teste para a variância dos tratamentos, por meio do teste F (Fisher). Trata-se de uma extensão do teste t de Student, permitindo que o pesquisador compare qualquer número de médias, quando o efeito de tratamentos é fixo.</p>
-<p><strong>Modelo estatistico</strong></p>
-<p>O modelo estatístico para a análise dos dados oriundos de um DIC com um único fator de tratamentos é dado pela Equação 1.</p>
-<p><span class="math inline">\(y_{ij} = \mu + \tau_i + e_{ij} = \mu_i + e_{ij}\)</span></p>
+<div id="modelo-estatistico" class="section level3 hasAnchor" number="4.3.1">
+<h3><span class="header-section-number">4.3.1</span> Modelo estatistico<a href="delineamento-inteiramente-casualizado.html#modelo-estatistico" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>O modelo estatístico para a análise dos dados oriundos de um DIC com um único fator de tratamentos é dado pela Equação 2.</p>
+<p><span class="math display">\[y_{ij} = \mu + \tau_i + e_{ij} = \mu_i + e_{ij} (2)\]</span></p>
 <p>em que:</p>
 <ul>
 <li><p><span class="math inline">\(y_{ij}\)</span> é o valor observado na jésima repetição do iésimo tratamento, com:</p>
@@ -382,15 +408,17 @@ e assim até as repetições do tratamento I.</li>
 <p>Realizando-se a ANOVA, testamos as hipóteses:</p>
 <p><span class="math inline">\(H0 : \tau1 = \tau2 = ... = \tau I = 0\)</span></p>
 <p><span class="math inline">\(H1 = Ha\)</span> : <span class="math inline">\(\tau i_6 = 0\)</span> para algum i.</p>
-<p>Havendo uma reparametrização do modelo apresentado na Equação 1, tal que <span class="math inline">\(\mu + \tau_i = \alpha i\)</span> em que <span class="math inline">\(\alpha i\)</span> é a média do iésimo tratamento, e:</p>
-<p><span class="math inline">\(yij = \alpha i + eij\)</span> , (2)</p>
-<p>as hipóteses de interesse passam a ser</p>
+<p>Havendo uma reparametrização do modelo apresentado na Equação 2, tal que <span class="math inline">\(\mu + \tau_i = \alpha i\)</span> em que <span class="math inline">\(\alpha i\)</span> é a média do iésimo tratamento, é:</p>
+<p><span class="math display">\[yij = \alpha i + eij  (3)\]</span></p>
+<p>As hipóteses de interesse passam a ser:</p>
 <p><span class="math inline">\(H0 : \alpha1 = \alpha2 = ... = \alpha I = \mu\)</span></p>
 <p><span class="math inline">\(H1 = Ha\)</span>: pelo um contraste de médias difere de zero.</p>
 <p>Neste momento assumiremos que as pressuposições de normalidade e independência dos erros, bem a homogeneidade de suas variâncias garantidas. Assim, assumimos que eij corresponde a uma realização da variável Eij , tal que <span class="math inline">\(e_{ij} \overset{iid}{\sim} N(0,\sigma^2)\)</span> e os demais termos no modelo 1 são fixos. Cabe sailentar que o modelo citado é o modelo maximal, ou seja, aquele modelo mais complicado a ser considerado na análise.
 Desse modo, a esperança da variável aleatória Yij será</p>
-<p><span class="math inline">\(E(Yij ) = E(\mu + \tau_i + Eij ) = \mu + \tau_i + 0 = \mu + \tau_i\)</span></p>
-<p><strong>Análise de variância</strong></p>
+<p><span class="math display">\[E(Yij ) = E(\mu + \tau_i + Eij ) = \mu + \tau_i + 0 = \mu + \tau_i (4)\]</span></p>
+</div>
+<div id="análise-de-variância" class="section level3 hasAnchor" number="4.3.2">
+<h3><span class="header-section-number">4.3.2</span> Análise de variância<a href="delineamento-inteiramente-casualizado.html#análise-de-variância" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>A proposta da ANOVA consiste em decompor a variância total dos dados em parte atribuída aos efeitos de tratamentos e parte ao acaso.</p>
 <p>Tabela 1: Esquema da análise de variância considerando-se um delineamento inteiramente casualizado, com I tratamentos, sendo cada um repetido ni vezes e <span class="math inline">\(n = \sum_i ni\)</span></p>
 <table>
@@ -435,7 +463,23 @@ Retomando as hipóteses:</p>
 <p><span class="math inline">\(H1 = Ha\)</span>: pelo um contraste de médias difere de zero.</p>
 <p>Rejeita-se <span class="math inline">\(H_0\)</span> se <span class="math inline">\(F_{cal} \geq F_{tab_{(\alpha, I-1, I(J-1))}}\)</span>, em que <span class="math inline">\(\alpha\)</span> é o nível de significância, <span class="math inline">\(I-1\)</span> é o número de graus de liberdade do numerador e <span class="math inline">\(I(J-1)\)</span> é o número de graus de liberdade do denominador.</p>
 <p><a href="https://docs.ufpr.br/~vayego/pedeefes/tab_sned.pdf">Tabela F</a></p>
-<p><strong>Exemplo</strong></p>
+</div>
+<div id="coeficiente-de-variação-1" class="section level3 hasAnchor" number="4.3.3">
+<h3><span class="header-section-number">4.3.3</span> Coeficiente de variação<a href="delineamento-inteiramente-casualizado.html#coeficiente-de-variação-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>número de repetições pode estar associado ao número de graus de liberdade do resíduo ; <span class="math display">\[gl_{Res} \geq 12\]</span></p>
+<p>O CV é adimensional, pode-se comparar a dispersão de variáveis
+com diferentes unidades de medida.</p>
+<p><span class="math display">\[\displaystyle{CV_{\%} = 100\frac{\hat{\sigma}}{\hat{\mu}} = 100\frac{\sqrt{QM_{Res}}}{\bar{y}}}\]</span></p>
+<ul>
+<li><p>CV <span class="math inline">\(&lt;\)</span> 10% : baixo</p></li>
+<li><p>10% <span class="math inline">\(&lt;\)</span> CV <span class="math inline">\(&gt;\)</span> 20% :médio</p></li>
+<li><p>20% <span class="math inline">\(&lt;\)</span> CV <span class="math inline">\(&gt;\)</span> 30% :alto</p></li>
+<li><p>CV <span class="math inline">\(&gt;\)</span> 30% : muito alto</p></li>
+</ul>
+</div>
+</div>
+<div id="exemplo-1" class="section level2 hasAnchor" number="4.4">
+<h2><span class="header-section-number">4.4</span> Exemplo<a href="delineamento-inteiramente-casualizado.html#exemplo-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Considere os dados abaixo referentes à produtividade de milho (kg/100m<span class="math inline">\(^2\)</span>) de quatro diferentes variedades, em um experimento instalado segundo o delineamento inteiramente casualizado, com cinco repetições.</p>
 <table>
 <thead>
@@ -586,16 +630,22 @@ Retomando as hipóteses:</p>
 </tr>
 </tbody>
 </table>
-<p><span class="math display">\[SQ_{Total} = \displaystyle{\sum_{i=1}^4\sum_{j=1}^5y_{ij}^2 - \frac{\left(\sum_{i=1}^4\sum_{j=1}^5y_{ij}\right)^2}{4\times5}}\]</span>
+<p>Soma de Quadrados total
+<span class="math display">\[SQ_{Total} = \displaystyle{\sum_{i=1}^4\sum_{j=1}^5y_{ij}^2 - \frac{\left(\sum_{i=1}^4\sum_{j=1}^5y_{ij}\right)^2}{4\times5}}\]</span>
 <span class="math display">\[ = \displaystyle{25^2 + 26^2 + \ldots + 28^2 - \frac{535^2}{20}}
 = 275,75\]</span></p>
+<p>Soma de Quadrados de tratamentos</p>
 <p><span class="math display">\[SQ_{Trat} = \displaystyle{\frac{1}{5}\sum_{i=1}^4 T_i^2 - \frac{\left(\sum_{i=1}^4\sum_{j=1}^5y_{ij}\right)^2}{4\times5}}\]</span>
 <span class="math display">\[= \displaystyle{\frac{1}{5}\left(115^2 + 135^2 + 130^2 + 155^2\right) - \frac{535^2}{20}}= 163,75\]</span></p>
+<p>Soma de Quadrados do Resíduo</p>
 <p><span class="math display">\[SQ_{Resíduo} = SQ_{Total} - SQ_{Trat}\]</span>
 <span class="math display">\[= 275,75 - 163,75 = 112,00\]</span></p>
+<p>Quadrado médio tratamentos</p>
 <p><span class="math display">\[QM_{Trat} = \displaystyle{\frac{SQ_{Trat}}{gl_{Trat}}}
 = \displaystyle{\frac{163,75}{3}} = 54,5833\]</span></p>
+<p>Quadrado médio do resíduo</p>
 <p><span class="math display">\[QM_{Resíduo} = \displaystyle{\frac{SQ_{Resíduo}}{gl_{Resíduo}}}=\displaystyle{\frac{112,00}{16}}= 7,0000\]</span></p>
+<p>F calculado</p>
 <p><span class="math display">\[F = \displaystyle{\frac{QM_{Trat}}{QM_{Resíduo}}}=\displaystyle{\frac{54,5833}{7,0000}}= 7,80\]</span></p>
 <p>Tabela da ANOVA:</p>
 <table>
@@ -659,20 +709,11 @@ Retomando as hipóteses:</p>
 <span id="cb2-12"><a href="delineamento-inteiramente-casualizado.html#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">cat</span>(<span class="st">&quot;Valor crítico da distribuição F:&quot;</span>, valor_critico, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
 <pre><code>Valor crítico da distribuição F: 3.238872 </code></pre>
 <p>Como <span class="math inline">\(F = 7. 80 &gt; 3. 24\)</span> = FTab (<span class="math inline">\(\alpha = 0. 05\)</span>, 3, 16), há evidências para rejeitarmos <span class="math inline">\(H_0\)</span> ao nível de 5% de significância. Desse modo, não podemos afirmar que todas as médias são iguais.</p>
-<p><strong>Coeficiente de variação</strong></p>
-<p>número de repetições pode estar associado ao número de graus de liberdade do resíduo ; <span class="math display">\[gl_{Res} \geq 12\]</span></p>
-<p>O CV é adimensional, pode-se comparar a dispersão de variáveis
-com diferentes unidades de medida.</p>
-<p><span class="math display">\[\displaystyle{CV_{\%} = 100\frac{\hat{\sigma}}{\hat{\mu}} = 100\frac{\sqrt{QM_{Res}}}{\bar{y}}}\]</span>
-* CV <span class="math inline">\(&lt;\)</span> 10% : baixo</p>
-<ul>
-<li><p>10% <span class="math inline">\(&lt;\)</span> CV <span class="math inline">\(&gt;\)</span> 20% :médio</p></li>
-<li><p>20% <span class="math inline">\(&lt;\)</span> CV <span class="math inline">\(&gt;\)</span> 30% :alto</p></li>
-<li><p>CV <span class="math inline">\(&gt;\)</span> 30% : muito alto</p></li>
-</ul>
-<div id="aplicação-no-r-studio-2" class="section level2 hasAnchor" number="4.1">
-<h2><span class="header-section-number">4.1</span> Aplicação no R studio<a href="delineamento-inteiramente-casualizado.html#aplicação-no-r-studio-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p><strong>Planejamento e Croqui</strong></p>
+</div>
+<div id="aplicação-no-r-studio-2" class="section level2 hasAnchor" number="4.5">
+<h2><span class="header-section-number">4.5</span> Aplicação no R studio<a href="delineamento-inteiramente-casualizado.html#aplicação-no-r-studio-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="planejamento-e-croqui" class="section level3 hasAnchor" number="4.5.1">
+<h3><span class="header-section-number">4.5.1</span> Planejamento e Croqui<a href="delineamento-inteiramente-casualizado.html#planejamento-e-croqui" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="delineamento-inteiramente-casualizado.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co">#&#39; # Planejamento de um experimento</span></span>
 <span id="cb4-2"><a href="delineamento-inteiramente-casualizado.html#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">set.seed</span>(<span class="dv">1234</span>)</span>
 <span id="cb4-3"><a href="delineamento-inteiramente-casualizado.html#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">sample</span>(<span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>, <span class="st">&quot;C&quot;</span>, <span class="st">&quot;D&quot;</span>), <span class="dv">5</span>))</span></code></pre></div>
@@ -783,7 +824,9 @@ Attaching package: &#39;agricolaeplotr&#39;</code></pre>
 18    18 4   C     5      2
 19    19 5   A     5      3
 20    20 5   C     5      4</code></pre>
-<p><strong>Importando dados de excel .xlsx</strong></p>
+</div>
+<div id="importando-dados-de-excel-.xlsx" class="section level3 hasAnchor" number="4.5.2">
+<h3><span class="header-section-number">4.5.2</span> Importando dados de excel .xlsx<a href="delineamento-inteiramente-casualizado.html#importando-dados-de-excel-.xlsx" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="delineamento-inteiramente-casualizado.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co">#Deve-se importar os arquivos .xlsx para o Rstudio</span></span>
 <span id="cb15-2"><a href="delineamento-inteiramente-casualizado.html#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">library</span>(readxl)</span>
 <span id="cb15-3"><a href="delineamento-inteiramente-casualizado.html#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> dados1 <span class="ot">&lt;-</span> <span class="fu">read_xlsx</span>(<span class="st">&quot;dados/aula2.2.xlsx&quot;</span>)</span>
@@ -879,7 +922,9 @@ Attaching package: &#39;agricolaeplotr&#39;</code></pre>
 </tr>
 </tbody>
 </table>
-<p><strong>Análise descritiva dos dados</strong></p>
+</div>
+<div id="análise-descritiva-dos-dados" class="section level3 hasAnchor" number="4.5.3">
+<h3><span class="header-section-number">4.5.3</span> Análise descritiva dos dados<a href="delineamento-inteiramente-casualizado.html#análise-descritiva-dos-dados" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="delineamento-inteiramente-casualizado.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">library</span>(ggplot2)</span>
 <span id="cb16-2"><a href="delineamento-inteiramente-casualizado.html#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">ggplot</span>(dados1, </span>
 <span id="cb16-3"><a href="delineamento-inteiramente-casualizado.html#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>        <span class="fu">aes</span>(<span class="at">x =</span> trat, </span>
@@ -925,7 +970,9 @@ Variância                   6.50   7.500   7.500   6.50
 Desvio-padrão               2.55   2.739   2.739   2.55
 Amplitude                   6.00   7.000   7.000   6.00
 Amplitude Interquartílica   4.00   3.000   3.000   4.00</code></pre>
-<p><strong>Análise da variância (ANOVA)</strong></p>
+</div>
+<div id="análise-da-variância-anova" class="section level3 hasAnchor" number="4.5.4">
+<h3><span class="header-section-number">4.5.4</span> Análise da variância (ANOVA)<a href="delineamento-inteiramente-casualizado.html#análise-da-variância-anova" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="delineamento-inteiramente-casualizado.html#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co">#&#39; ## Análise de variância  </span></span>
 <span id="cb21-2"><a href="delineamento-inteiramente-casualizado.html#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="co">#&#39; </span></span>
 <span id="cb21-3"><a href="delineamento-inteiramente-casualizado.html#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="co">#&#39; $H_0$: $\mu_1 = \mu_2 = \mu_3 = \mu_4$ *versus* </span></span>
@@ -942,8 +989,9 @@ Residuals 16 112.00   7.000
 ---
 Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
 </div>
-<div id="exercicíos-2" class="section level2 hasAnchor" number="4.2">
-<h2><span class="header-section-number">4.2</span> Exercicíos<a href="delineamento-inteiramente-casualizado.html#exercicíos-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+</div>
+<div id="exercicíos-2" class="section level2 hasAnchor" number="4.6">
+<h2><span class="header-section-number">4.6</span> Exercicíos<a href="delineamento-inteiramente-casualizado.html#exercicíos-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ol style="list-style-type: decimal">
 <li>Os dados apresentados na Tabela 1 são referentes ao peso de espigas de milho, em kg/10m², em cada parcela (10 m²). São apresentados os dados de 5 genótipos avaliados em um delineamento inteiramente casualizado (DIC) com 4 repetições.</li>
 </ol>
@@ -995,10 +1043,12 @@ Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&
 </tr>
 </tbody>
 </table>
-<p>Considere os dados apresentados na Tabela.
-a) Faça um possível croqui de instalação para um novo experimento com o mesmo número de tratamentos (genótipos) e de repetições;
-b) Faça a análise exploratória dos dados de peso de espigas;
-c) Faça a análise de variância e interprete o resultado do teste F considerando o nível de significância 5%;</p>
+<p>Considere os dados apresentados na Tabela.</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>Faça um possível croqui de instalação para um novo experimento com o mesmo número de tratamentos (genótipos) e de repetições;</p></li>
+<li><p>Faça a análise exploratória dos dados de peso de espigas;</p></li>
+<li><p>Faça a análise de variância e interprete o resultado do teste F considerando o nível de significância 5%;</p></li>
+</ol>
 <ol start="2" style="list-style-type: decimal">
 <li>Em um experimento de competição de dez cultivares de arroz para avaliar a produtividade, instalado em um delineamento inteiramente casualizado, os resultados (parciais) para a ANOVA foram os seguintes:</li>
 </ol>
@@ -1044,6 +1094,86 @@ c) Faça a análise de variância e interprete o resultado do teste F consideran
 <li><p>Complete o quadro da ANOVA</p></li>
 <li><p>Com base no resultado da ANOVA escreva as hipóteses e a conclusão</p></li>
 </ol>
+<ol start="3" style="list-style-type: decimal">
+<li>Em um experimento realizado no detapartamento de zootecnia da Esalq foram encontras as seguintes concentrações de glicose no sangue ( mg/ 100ml ) de 5 raças de bovinos sendo 8 amostras por raça. Os resultados foram:</li>
+</ol>
+<table>
+<thead>
+<tr class="header">
+<th>Raças</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+<th>7</th>
+<th>8</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Nelore</td>
+<td>124</td>
+<td>111</td>
+<td>117</td>
+<td>110</td>
+<td>142</td>
+<td>116</td>
+<td>121</td>
+<td>142</td>
+</tr>
+<tr class="even">
+<td>Gir</td>
+<td>101</td>
+<td>98</td>
+<td>121</td>
+<td>117</td>
+<td>106</td>
+<td>118</td>
+<td>108</td>
+<td>123</td>
+</tr>
+<tr class="odd">
+<td>Girolando</td>
+<td>118</td>
+<td>127</td>
+<td>121</td>
+<td>121</td>
+<td>127</td>
+<td>120</td>
+<td>129</td>
+<td>138</td>
+</tr>
+<tr class="even">
+<td>Holandês</td>
+<td>125</td>
+<td>129</td>
+<td>148</td>
+<td>119</td>
+<td>139</td>
+<td>110</td>
+<td>122</td>
+<td>141</td>
+</tr>
+<tr class="odd">
+<td>Senepol</td>
+<td>101</td>
+<td>103</td>
+<td>112</td>
+<td>107</td>
+<td>119</td>
+<td>106</td>
+<td>122</td>
+<td>118</td>
+</tr>
+</tbody>
+</table>
+<ol style="list-style-type: lower-alpha">
+<li><p>Faça uma análise descritiva dos dados.</p></li>
+<li><p>Faça o quadro da ANOVA e responda qual hipótese seguir.</p></li>
+<li><p>Como seria um possível planejamento para esse experimento?</p></li>
+</ol>
 
 </div>
 </div>
@@ -1083,10 +1213,7 @@ gitbook.start({
 "family": "sans",
 "size": 2
 },
-"edit": {
-"link": "https://github.com/USERNAME/REPO/edit/BRANCH/03-dic.Rmd",
-"text": "Edit"
-},
+"edit": null,
 "history": {
 "link": null,
 "text": null

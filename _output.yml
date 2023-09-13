@@ -6,7 +6,7 @@ bookdown::gitbook:
         <li><a href="./">Estatística experimental</a></li>
       after: |
         <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
-    edit: https://github.com/USERNAME/REPO/edit/BRANCH/%s
+    edit: 
     download: ["pdf", "epub"]
 bookdown::pdf_book: default
  
