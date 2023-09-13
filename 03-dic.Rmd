@@ -2,9 +2,11 @@
 knitr::opts_chunk$set(comment = "", prompt = TRUE)
 ```
 
+
 # Delineamento inteiramente casualizado
 
 O delineamento inteiramente casualizado (DIC) é o mais simples dos delineamentos, pois considera apenas dois dos princípios básicos da experimentação: a repetição e a casualização. Neste, os tratamentos são aleatoriamente atribuídos ao material experimental, sem o esforço de se restringir os tratamentos a alguma porção de área, material ou espaço. Ainda como característica, como não há uso do controle local o número de repetições por tratamento pode variar.É geralmente utilizado quando a variação do material experimental é relativamente pequena, o que geralmente ocorre em laboratórios e casas de vegetação.
+
 Como vantagens de sua utilização temos que é um experimento de fácil planejamento e que permite o número máximo de graus de liberdade do Resíduo. Em termos de análise é a mais simples quando comparado aos demais delineamentos experimentais e não apresentará confundimento caso os tratamentos tenham números diferentes de repetições. Entretanto, como desvantagens temos que o delineamento inteiramente casualizado é adequado aos experimentos com baixo número de tratamentos e material experimental homogêneo, o que nem sempre se consegue. Quando um grande número de tratamentos é utilizado, há um crescimento no material experimental, que pode inflacionar a variação experimental. Nesses casos o Delineamento Inteiramente Casualizado não é indicado.
 
 __Obtendo um croqui para um DIC__ 
@@ -61,13 +63,13 @@ em que:
 
 - $\tau_i$ é o efeito do iésimo tratamento,
 
-- eij é o erro experimental, tal que $Eijiid \sim N(0, \sigma^2)$.
+- eij é o erro experimental, tal que $e_{ij} \overset{iid}{\sim}  N(0,\sigma^2)$.
 
 Realizando-se a ANOVA, testamos as hipóteses:
 
 $H0 : \tau1 = \tau2 = ... = \tau I = 0$
 
-$H1 = Ha$ : $\tau i 6= 0$ para algum i.
+$H1 = Ha$ : $\tau i_6 = 0$ para algum i.
 
 Havendo uma reparametrização do modelo apresentado na Equação 1, tal que $\mu + \tau_i = \alpha i$ em que $\alpha i$ é a média do iésimo tratamento, e:
 
@@ -79,13 +81,161 @@ $H0 : \alpha1 = \alpha2 = ... = \alpha I = \mu$
 
 $H1 = Ha$: pelo um contraste de médias difere de zero.
 
-Neste momento assumiremos que as pressuposições de normalidade e independência dos erros, bem a homogeneidade de suas variâncias garantidas. Assim, assumimos que eij corresponde a uma realização da variável Eij , tal que $Eijiid\sim N(0, \sigma^2)$ e os demais termos no modelo 1 são fixos. Cabe sailentar que o modelo citado é o modelo maximal, ou seja, aquele modelo mais complicado a ser considerado na análise.
+Neste momento assumiremos que as pressuposições de normalidade e independência dos erros, bem a homogeneidade de suas variâncias garantidas. Assim, assumimos que eij corresponde a uma realização da variável Eij , tal que $e_{ij} \overset{iid}{\sim}  N(0,\sigma^2)$ e os demais termos no modelo 1 são fixos. Cabe sailentar que o modelo citado é o modelo maximal, ou seja, aquele modelo mais complicado a ser considerado na análise.
 Desse modo, a esperança da variável aleatória Yij será
 
 $E(Yij ) = E(\mu + \tau_i + Eij ) = \mu + \tau_i + 0 = \mu + \tau_i$
 
+__Análise de variância__
+
+A proposta da ANOVA consiste em decompor a variância total dos dados em parte atribuída aos efeitos de tratamentos e parte ao acaso.
+
+Tabela 1: Esquema da análise de variância considerando-se um delineamento inteiramente casualizado, com I tratamentos, sendo cada um repetido ni vezes e $n = \sum_i ni$
+
+
+Fontes de Variação| graus de liberdade   |
+------------------|----------------------|
+Total             |  $n-1$               |
+Tratamentos       |  $I-1$               |
+Resíduo           |  $n-I$               |
+ 
+ 
+Sabemos que a variância dos dados é dada por:
+
+$$Variância = \sum _{ij} \frac{(yij−y)^2}{(n−1)}$$ 
+
+$$variância = \displaystyle{\frac{SQ}{gl}}$$
+
+Denotamos por Soma de Quadrados do Total (SQ Total) o numerador da expressão 3. Observe que a decomposição mencionada anteriormente será:
 
  
+ $$\displaystyle{\sum_{i=1}^I\sum_{j=1}^Jy_{ij}^2-\frac{\left(\sum_{i=1}^I\sum_{j=1}^Jy_{ij}\right)^2}{i\times j}}$$
+ 
+em que SQ Tratamentos e SQ Resíduo correspondem às Soma de Quadrados de Tratamentos e Soma de Quadrados de Resíduo, respectivamente.
+As expressões apresentadas em 4 e 5, podem ser reescritas conforme segue.
+
+$$\displaystyle{\frac{1}{5}\sum_{i=1}^I T_i^2 - \frac{\left(\sum_{i=1}^I\sum_{j=1}^Jy_{ij}\right)^2}{i\times j}}$$
+A SQ Resíduo (6) pode ser obtida por diferença, ou seja,
+SQ Resíduo = SQ Total - SQ Tratamentos.
+
+Para encontrarmos a estatística apropriada para o teste F temos que obter as Esperanças dos Quadrados Médios relacionados a cada fonte de variação na ANOVA.
+Os quadrados médios, denotados usualmente por QM, são definidos pelo quociente entre a soma de quadrados e o respectivo número de graus de liberdade relacionados a uma fonte de varição, isto é:
+
+$$QM_{Trat} = \displaystyle{\frac{SQ_\text{Trat}}{gl_\text{Trat}}}$$
+$$QM_{Resíduo} = \displaystyle{\frac{SQ_\text{Resíduo}}{gl_\text{Resíduo}}}$$
+$$F = \displaystyle{\frac{QM_{Trat}}{QM_{Resíduo}}}$$
+Retomando as hipóteses: 
+
+$H0 : \mu1 = \mu2 = ... = \mu I = 0$
+
+$H1 = Ha$: pelo um contraste de médias difere de zero.
+
+Rejeita-se $H_0$ se $F_{cal} \geq F_{tab_{(\alpha, I-1, I(J-1))}}$, em que $\alpha$ é o nível de significância, $I-1$ é o número de graus de liberdade do numerador e $I(J-1)$ é o número de graus de liberdade do denominador.		
+
+[Tabela F](https://docs.ufpr.br/~vayego/pedeefes/tab_sned.pdf)
+
+__Exemplo__
+
+Considere os dados abaixo referentes à produtividade de milho (kg/100m$^2$) de quatro diferentes variedades, em um experimento instalado segundo o delineamento inteiramente casualizado, com cinco repetições.
+
+(Variedades)| 1  |  2  |  3 |  4 |  5 |total |media |
+------------|----|-----|----|----|----|------|------|
+			$A$   | 25 | 26  | 20 | 23 | 21 | 115  | 23,00| 
+			$B$   | 31 | 25  | 28 | 27 | 24 | 135  | 27,00|
+			$C$   | 22 | 26  | 28 | 25 | 29 | 130  | 26,00|
+			$D$   | 33 | 29  | 31 | 34 | 28 | 155  | 31,00|
+
+
+
+(Variedades)| 1 | 2  | 3  | 4  | 5  |   total |
+------------|---|----|----|----|----|---------|
+V1          |y11| y12| y13| y14| y15| y1· = T1|
+V2          |y21| y22| y23| y24| y25| y2· = T2|
+V3          |y31| y32| y33| y34| y35| y3· = T3|
+V4          |y41| y42| y43| y44| y45| y4· = T4|
+
+
+
+Análise descritiva: 
+
+Análise      | A    | B     | C     | D      | 
+-------------|------|-------|-------|--------|
+Soma         |115,00| 135,00| 130,00| 155,00 | 
+Média        |23,00 | 27,00 | 26,00 | 31,00  |  
+Variância    |6,50  |7,50   |7,50   | 6,50   | 
+Desvio-padrão|2,55  |2,74   | 2,74  | 2,55   | 
+
+
+$$SQ_{Total} = \displaystyle{\sum_{i=1}^4\sum_{j=1}^5y_{ij}^2 - \frac{\left(\sum_{i=1}^4\sum_{j=1}^5y_{ij}\right)^2}{4\times5}}$$
+$$ = \displaystyle{25^2 + 26^2 + \ldots + 28^2 - \frac{535^2}{20}} 
+ = 275,75$$
+ 
+
+$$SQ_{Trat} = \displaystyle{\frac{1}{5}\sum_{i=1}^4 T_i^2 - \frac{\left(\sum_{i=1}^4\sum_{j=1}^5y_{ij}\right)^2}{4\times5}}$$
+ $$= \displaystyle{\frac{1}{5}\left(115^2 + 135^2 + 130^2 + 155^2\right) - \frac{535^2}{20}}= 163,75$$
+
+
+$$SQ_{Resíduo} = SQ_{Total} - SQ_{Trat}$$ 
+ $$= 275,75 - 163,75 = 112,00$$
+
+$$QM_{Trat} = \displaystyle{\frac{SQ_{Trat}}{gl_{Trat}}}
+= \displaystyle{\frac{163,75}{3}} = 54,5833$$
+
+
+
+
+$$QM_{Resíduo} = \displaystyle{\frac{SQ_{Resíduo}}{gl_{Resíduo}}}=\displaystyle{\frac{112,00}{16}}= 7,0000$$
+
+$$F = \displaystyle{\frac{QM_{Trat}}{QM_{Resíduo}}}=\displaystyle{\frac{54,5833}{7,0000}}= 7,80$$
+
+Tabela da ANOVA:
+
+Fontes     |Graus de liberdade |Soma de Quadrados |Quadrado Médio |Fcal |Ftab|
+-----------|-------------------|------------------|---------------|-----|----|
+Tratamentos| 3                 | 163,75           |54,5833        |7,80 |    |
+resıduo    | 16                | 112,00           | 7,0000        |     |    |
+Total      | 19                | 275,75           |               |     |    |
+
+F tabelado:
+
+```{r}
+# Defina o nível de significância desejado (por exemplo, 0.05 para um nível de 5%)
+nivel_de_significancia <- 0.05
+
+# Defina os graus de liberdade do numerador (df1) e do denominador (df2)
+df1 <- 3  # Graus de liberdade do numerador
+df2 <- 16 # Graus de liberdade do denominador
+
+# Encontre o valor crítico da distribuição F para o nível de significância especificado
+valor_critico <- qf(1 - nivel_de_significancia, df1, df2)
+
+# Imprima o valor crítico
+cat("Valor crítico da distribuição F:", valor_critico, "\n")
+
+```
+
+Como $F = 7. 80 > 3. 24$ = FTab ($\alpha = 0. 05$, 3, 16), há evidências para rejeitarmos $H_0$ ao nível de 5% de significância. Desse modo, não podemos afirmar que todas as médias são iguais.
+
+
+__Coeficiente de variação__
+
+
+número de repetições pode estar associado ao número de graus de liberdade do resíduo ; $$gl_{Res} \geq 12$$
+ 
+O CV é adimensional, pode-se comparar a dispersão de variáveis
+com diferentes unidades de medida.
+
+
+$$\displaystyle{CV_{\%} = 100\frac{\hat{\sigma}}{\hat{\mu}} = 100\frac{\sqrt{QM_{Res}}}{\bar{y}}}$$
+* CV $<$ 10% : baixo
+
+- 10% $<$ CV $>$ 20%  :médio
+
+- 20% $<$ CV $>$ 30%  :alto
+
+- CV $>$ 30% : muito alto
+       
+      
 ## Aplicação no R studio
  
 __Planejamento e Croqui__
@@ -231,4 +381,6 @@ Total   | 29 |    x     | x  |    x  |  x    |
 a) Complete o quadro da ANOVA
 
 b) Com base no resultado da ANOVA escreva as hipóteses e a conclusão 
+
+
 

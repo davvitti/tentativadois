@@ -29,7 +29,7 @@ set in the _output.yml file.</p>" />
 <meta name="author" content="Davi Vitti" />
 
 
-<meta name="date" content="2023-09-10" />
+<meta name="date" content="2023-09-13" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -250,8 +250,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="delineamento-inteiramente-casualizado" class="section level1 hasAnchor" number="4">
 <h1><span class="header-section-number">Capítulo 4</span> Delineamento inteiramente casualizado<a href="delineamento-inteiramente-casualizado.html#delineamento-inteiramente-casualizado" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>O delineamento inteiramente casualizado (DIC) é o mais simples dos delineamentos, pois considera apenas dois dos princípios básicos da experimentação: a repetição e a casualização. Neste, os tratamentos são aleatoriamente atribuídos ao material experimental, sem o esforço de se restringir os tratamentos a alguma porção de área, material ou espaço. Ainda como característica, como não há uso do controle local o número de repetições por tratamento pode variar.É geralmente utilizado quando a variação do material experimental é relativamente pequena, o que geralmente ocorre em laboratórios e casas de vegetação.
-Como vantagens de sua utilização temos que é um experimento de fácil planejamento e que permite o número máximo de graus de liberdade do Resíduo. Em termos de análise é a mais simples quando comparado aos demais delineamentos experimentais e não apresentará confundimento caso os tratamentos tenham números diferentes de repetições. Entretanto, como desvantagens temos que o delineamento inteiramente casualizado é adequado aos experimentos com baixo número de tratamentos e material experimental homogêneo, o que nem sempre se consegue. Quando um grande número de tratamentos é utilizado, há um crescimento no material experimental, que pode inflacionar a variação experimental. Nesses casos o Delineamento Inteiramente Casualizado não é indicado.</p>
+<p>O delineamento inteiramente casualizado (DIC) é o mais simples dos delineamentos, pois considera apenas dois dos princípios básicos da experimentação: a repetição e a casualização. Neste, os tratamentos são aleatoriamente atribuídos ao material experimental, sem o esforço de se restringir os tratamentos a alguma porção de área, material ou espaço. Ainda como característica, como não há uso do controle local o número de repetições por tratamento pode variar.É geralmente utilizado quando a variação do material experimental é relativamente pequena, o que geralmente ocorre em laboratórios e casas de vegetação.</p>
+<p>Como vantagens de sua utilização temos que é um experimento de fácil planejamento e que permite o número máximo de graus de liberdade do Resíduo. Em termos de análise é a mais simples quando comparado aos demais delineamentos experimentais e não apresentará confundimento caso os tratamentos tenham números diferentes de repetições. Entretanto, como desvantagens temos que o delineamento inteiramente casualizado é adequado aos experimentos com baixo número de tratamentos e material experimental homogêneo, o que nem sempre se consegue. Quando um grande número de tratamentos é utilizado, há um crescimento no material experimental, que pode inflacionar a variação experimental. Nesses casos o Delineamento Inteiramente Casualizado não é indicado.</p>
 <p><strong>Obtendo um croqui para um DIC</strong></p>
 <p>Para obtermos um croqui para um experimento com I tratamentos em um DIC, sendo o
 iésimo tratamento repetido ni vezes e o número total de parcelas <span class="math inline">\(n=\sum_{i=1}^I n_i\)</span></p>
@@ -377,39 +377,319 @@ e assim até as repetições do tratamento I.</li>
 </ul></li>
 <li><p><span class="math inline">\(\mu\)</span> é uma constante inerente a todas as observações, geralmente a média geral,</p></li>
 <li><p><span class="math inline">\(\tau_i\)</span> é o efeito do iésimo tratamento,</p></li>
-<li><p>eij é o erro experimental, tal que <span class="math inline">\(Eijiid \sim N(0, \sigma^2)\)</span>.</p></li>
+<li><p>eij é o erro experimental, tal que <span class="math inline">\(e_{ij} \overset{iid}{\sim} N(0,\sigma^2)\)</span>.</p></li>
 </ul>
 <p>Realizando-se a ANOVA, testamos as hipóteses:</p>
 <p><span class="math inline">\(H0 : \tau1 = \tau2 = ... = \tau I = 0\)</span></p>
-<p><span class="math inline">\(H1 = Ha\)</span> : <span class="math inline">\(\tau i 6= 0\)</span> para algum i.</p>
+<p><span class="math inline">\(H1 = Ha\)</span> : <span class="math inline">\(\tau i_6 = 0\)</span> para algum i.</p>
 <p>Havendo uma reparametrização do modelo apresentado na Equação 1, tal que <span class="math inline">\(\mu + \tau_i = \alpha i\)</span> em que <span class="math inline">\(\alpha i\)</span> é a média do iésimo tratamento, e:</p>
 <p><span class="math inline">\(yij = \alpha i + eij\)</span> , (2)</p>
 <p>as hipóteses de interesse passam a ser</p>
 <p><span class="math inline">\(H0 : \alpha1 = \alpha2 = ... = \alpha I = \mu\)</span></p>
 <p><span class="math inline">\(H1 = Ha\)</span>: pelo um contraste de médias difere de zero.</p>
-<p>Neste momento assumiremos que as pressuposições de normalidade e independência dos erros, bem a homogeneidade de suas variâncias garantidas. Assim, assumimos que eij corresponde a uma realização da variável Eij , tal que <span class="math inline">\(Eijiid\sim N(0, \sigma^2)\)</span> e os demais termos no modelo 1 são fixos. Cabe sailentar que o modelo citado é o modelo maximal, ou seja, aquele modelo mais complicado a ser considerado na análise.
+<p>Neste momento assumiremos que as pressuposições de normalidade e independência dos erros, bem a homogeneidade de suas variâncias garantidas. Assim, assumimos que eij corresponde a uma realização da variável Eij , tal que <span class="math inline">\(e_{ij} \overset{iid}{\sim} N(0,\sigma^2)\)</span> e os demais termos no modelo 1 são fixos. Cabe sailentar que o modelo citado é o modelo maximal, ou seja, aquele modelo mais complicado a ser considerado na análise.
 Desse modo, a esperança da variável aleatória Yij será</p>
 <p><span class="math inline">\(E(Yij ) = E(\mu + \tau_i + Eij ) = \mu + \tau_i + 0 = \mu + \tau_i\)</span></p>
+<p><strong>Análise de variância</strong></p>
+<p>A proposta da ANOVA consiste em decompor a variância total dos dados em parte atribuída aos efeitos de tratamentos e parte ao acaso.</p>
+<p>Tabela 1: Esquema da análise de variância considerando-se um delineamento inteiramente casualizado, com I tratamentos, sendo cada um repetido ni vezes e <span class="math inline">\(n = \sum_i ni\)</span></p>
+<table>
+<thead>
+<tr class="header">
+<th>Fontes de Variação</th>
+<th>graus de liberdade</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Total</td>
+<td><span class="math inline">\(n-1\)</span></td>
+</tr>
+<tr class="even">
+<td>Tratamentos</td>
+<td><span class="math inline">\(I-1\)</span></td>
+</tr>
+<tr class="odd">
+<td>Resíduo</td>
+<td><span class="math inline">\(n-I\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Sabemos que a variância dos dados é dada por:</p>
+<p><span class="math display">\[Variância = \sum _{ij} \frac{(yij−y)^2}{(n−1)}\]</span></p>
+<p><span class="math display">\[variância = \displaystyle{\frac{SQ}{gl}}\]</span></p>
+<p>Denotamos por Soma de Quadrados do Total (SQ Total) o numerador da expressão 3. Observe que a decomposição mencionada anteriormente será:</p>
+<p><span class="math display">\[\displaystyle{\sum_{i=1}^I\sum_{j=1}^Jy_{ij}^2-\frac{\left(\sum_{i=1}^I\sum_{j=1}^Jy_{ij}\right)^2}{i\times j}}\]</span></p>
+<p>em que SQ Tratamentos e SQ Resíduo correspondem às Soma de Quadrados de Tratamentos e Soma de Quadrados de Resíduo, respectivamente.
+As expressões apresentadas em 4 e 5, podem ser reescritas conforme segue.</p>
+<p><span class="math display">\[\displaystyle{\frac{1}{5}\sum_{i=1}^I T_i^2 - \frac{\left(\sum_{i=1}^I\sum_{j=1}^Jy_{ij}\right)^2}{i\times j}}\]</span>
+A SQ Resíduo (6) pode ser obtida por diferença, ou seja,
+SQ Resíduo = SQ Total - SQ Tratamentos.</p>
+<p>Para encontrarmos a estatística apropriada para o teste F temos que obter as Esperanças dos Quadrados Médios relacionados a cada fonte de variação na ANOVA.
+Os quadrados médios, denotados usualmente por QM, são definidos pelo quociente entre a soma de quadrados e o respectivo número de graus de liberdade relacionados a uma fonte de varição, isto é:</p>
+<p><span class="math display">\[QM_{Trat} = \displaystyle{\frac{SQ_\text{Trat}}{gl_\text{Trat}}}\]</span>
+<span class="math display">\[QM_{Resíduo} = \displaystyle{\frac{SQ_\text{Resíduo}}{gl_\text{Resíduo}}}\]</span>
+<span class="math display">\[F = \displaystyle{\frac{QM_{Trat}}{QM_{Resíduo}}}\]</span>
+Retomando as hipóteses:</p>
+<p><span class="math inline">\(H0 : \mu1 = \mu2 = ... = \mu I = 0\)</span></p>
+<p><span class="math inline">\(H1 = Ha\)</span>: pelo um contraste de médias difere de zero.</p>
+<p>Rejeita-se <span class="math inline">\(H_0\)</span> se <span class="math inline">\(F_{cal} \geq F_{tab_{(\alpha, I-1, I(J-1))}}\)</span>, em que <span class="math inline">\(\alpha\)</span> é o nível de significância, <span class="math inline">\(I-1\)</span> é o número de graus de liberdade do numerador e <span class="math inline">\(I(J-1)\)</span> é o número de graus de liberdade do denominador.</p>
+<p><a href="https://docs.ufpr.br/~vayego/pedeefes/tab_sned.pdf">Tabela F</a></p>
+<p><strong>Exemplo</strong></p>
+<p>Considere os dados abaixo referentes à produtividade de milho (kg/100m<span class="math inline">\(^2\)</span>) de quatro diferentes variedades, em um experimento instalado segundo o delineamento inteiramente casualizado, com cinco repetições.</p>
+<table>
+<thead>
+<tr class="header">
+<th>(Variedades)</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>total</th>
+<th>media</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(A\)</span></td>
+<td>25</td>
+<td>26</td>
+<td>20</td>
+<td>23</td>
+<td>21</td>
+<td>115</td>
+<td>23,00</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(B\)</span></td>
+<td>31</td>
+<td>25</td>
+<td>28</td>
+<td>27</td>
+<td>24</td>
+<td>135</td>
+<td>27,00</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(C\)</span></td>
+<td>22</td>
+<td>26</td>
+<td>28</td>
+<td>25</td>
+<td>29</td>
+<td>130</td>
+<td>26,00</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(D\)</span></td>
+<td>33</td>
+<td>29</td>
+<td>31</td>
+<td>34</td>
+<td>28</td>
+<td>155</td>
+<td>31,00</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th>(Variedades)</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>total</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>V1</td>
+<td>y11</td>
+<td>y12</td>
+<td>y13</td>
+<td>y14</td>
+<td>y15</td>
+<td>y1· = T1</td>
+</tr>
+<tr class="even">
+<td>V2</td>
+<td>y21</td>
+<td>y22</td>
+<td>y23</td>
+<td>y24</td>
+<td>y25</td>
+<td>y2· = T2</td>
+</tr>
+<tr class="odd">
+<td>V3</td>
+<td>y31</td>
+<td>y32</td>
+<td>y33</td>
+<td>y34</td>
+<td>y35</td>
+<td>y3· = T3</td>
+</tr>
+<tr class="even">
+<td>V4</td>
+<td>y41</td>
+<td>y42</td>
+<td>y43</td>
+<td>y44</td>
+<td>y45</td>
+<td>y4· = T4</td>
+</tr>
+</tbody>
+</table>
+<p>Análise descritiva:</p>
+<table>
+<thead>
+<tr class="header">
+<th>Análise</th>
+<th>A</th>
+<th>B</th>
+<th>C</th>
+<th>D</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Soma</td>
+<td>115,00</td>
+<td>135,00</td>
+<td>130,00</td>
+<td>155,00</td>
+</tr>
+<tr class="even">
+<td>Média</td>
+<td>23,00</td>
+<td>27,00</td>
+<td>26,00</td>
+<td>31,00</td>
+</tr>
+<tr class="odd">
+<td>Variância</td>
+<td>6,50</td>
+<td>7,50</td>
+<td>7,50</td>
+<td>6,50</td>
+</tr>
+<tr class="even">
+<td>Desvio-padrão</td>
+<td>2,55</td>
+<td>2,74</td>
+<td>2,74</td>
+<td>2,55</td>
+</tr>
+</tbody>
+</table>
+<p><span class="math display">\[SQ_{Total} = \displaystyle{\sum_{i=1}^4\sum_{j=1}^5y_{ij}^2 - \frac{\left(\sum_{i=1}^4\sum_{j=1}^5y_{ij}\right)^2}{4\times5}}\]</span>
+<span class="math display">\[ = \displaystyle{25^2 + 26^2 + \ldots + 28^2 - \frac{535^2}{20}}
+= 275,75\]</span></p>
+<p><span class="math display">\[SQ_{Trat} = \displaystyle{\frac{1}{5}\sum_{i=1}^4 T_i^2 - \frac{\left(\sum_{i=1}^4\sum_{j=1}^5y_{ij}\right)^2}{4\times5}}\]</span>
+<span class="math display">\[= \displaystyle{\frac{1}{5}\left(115^2 + 135^2 + 130^2 + 155^2\right) - \frac{535^2}{20}}= 163,75\]</span></p>
+<p><span class="math display">\[SQ_{Resíduo} = SQ_{Total} - SQ_{Trat}\]</span>
+<span class="math display">\[= 275,75 - 163,75 = 112,00\]</span></p>
+<p><span class="math display">\[QM_{Trat} = \displaystyle{\frac{SQ_{Trat}}{gl_{Trat}}}
+= \displaystyle{\frac{163,75}{3}} = 54,5833\]</span></p>
+<p><span class="math display">\[QM_{Resíduo} = \displaystyle{\frac{SQ_{Resíduo}}{gl_{Resíduo}}}=\displaystyle{\frac{112,00}{16}}= 7,0000\]</span></p>
+<p><span class="math display">\[F = \displaystyle{\frac{QM_{Trat}}{QM_{Resíduo}}}=\displaystyle{\frac{54,5833}{7,0000}}= 7,80\]</span></p>
+<p>Tabela da ANOVA:</p>
+<table>
+<colgroup>
+<col width="15%" />
+<col width="26%" />
+<col width="25%" />
+<col width="20%" />
+<col width="6%" />
+<col width="5%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Fontes</th>
+<th>Graus de liberdade</th>
+<th>Soma de Quadrados</th>
+<th>Quadrado Médio</th>
+<th>Fcal</th>
+<th>Ftab</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Tratamentos</td>
+<td>3</td>
+<td>163,75</td>
+<td>54,5833</td>
+<td>7,80</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>resıduo</td>
+<td>16</td>
+<td>112,00</td>
+<td>7,0000</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Total</td>
+<td>19</td>
+<td>275,75</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>F tabelado:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="delineamento-inteiramente-casualizado.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Defina o nível de significância desejado (por exemplo, 0.05 para um nível de 5%)</span></span>
+<span id="cb2-2"><a href="delineamento-inteiramente-casualizado.html#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> nivel_de_significancia <span class="ot">&lt;-</span> <span class="fl">0.05</span></span>
+<span id="cb2-3"><a href="delineamento-inteiramente-casualizado.html#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> </span>
+<span id="cb2-4"><a href="delineamento-inteiramente-casualizado.html#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="co"># Defina os graus de liberdade do numerador (df1) e do denominador (df2)</span></span>
+<span id="cb2-5"><a href="delineamento-inteiramente-casualizado.html#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> df1 <span class="ot">&lt;-</span> <span class="dv">3</span>  <span class="co"># Graus de liberdade do numerador</span></span>
+<span id="cb2-6"><a href="delineamento-inteiramente-casualizado.html#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> df2 <span class="ot">&lt;-</span> <span class="dv">16</span> <span class="co"># Graus de liberdade do denominador</span></span>
+<span id="cb2-7"><a href="delineamento-inteiramente-casualizado.html#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> </span>
+<span id="cb2-8"><a href="delineamento-inteiramente-casualizado.html#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="co"># Encontre o valor crítico da distribuição F para o nível de significância especificado</span></span>
+<span id="cb2-9"><a href="delineamento-inteiramente-casualizado.html#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> valor_critico <span class="ot">&lt;-</span> <span class="fu">qf</span>(<span class="dv">1</span> <span class="sc">-</span> nivel_de_significancia, df1, df2)</span>
+<span id="cb2-10"><a href="delineamento-inteiramente-casualizado.html#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> </span>
+<span id="cb2-11"><a href="delineamento-inteiramente-casualizado.html#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="co"># Imprima o valor crítico</span></span>
+<span id="cb2-12"><a href="delineamento-inteiramente-casualizado.html#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">cat</span>(<span class="st">&quot;Valor crítico da distribuição F:&quot;</span>, valor_critico, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
+<pre><code>Valor crítico da distribuição F: 3.238872 </code></pre>
+<p>Como <span class="math inline">\(F = 7. 80 &gt; 3. 24\)</span> = FTab (<span class="math inline">\(\alpha = 0. 05\)</span>, 3, 16), há evidências para rejeitarmos <span class="math inline">\(H_0\)</span> ao nível de 5% de significância. Desse modo, não podemos afirmar que todas as médias são iguais.</p>
+<p><strong>Coeficiente de variação</strong></p>
+<p>número de repetições pode estar associado ao número de graus de liberdade do resíduo ; <span class="math display">\[gl_{Res} \geq 12\]</span></p>
+<p>O CV é adimensional, pode-se comparar a dispersão de variáveis
+com diferentes unidades de medida.</p>
+<p><span class="math display">\[\displaystyle{CV_{\%} = 100\frac{\hat{\sigma}}{\hat{\mu}} = 100\frac{\sqrt{QM_{Res}}}{\bar{y}}}\]</span>
+* CV <span class="math inline">\(&lt;\)</span> 10% : baixo</p>
+<ul>
+<li><p>10% <span class="math inline">\(&lt;\)</span> CV <span class="math inline">\(&gt;\)</span> 20% :médio</p></li>
+<li><p>20% <span class="math inline">\(&lt;\)</span> CV <span class="math inline">\(&gt;\)</span> 30% :alto</p></li>
+<li><p>CV <span class="math inline">\(&gt;\)</span> 30% : muito alto</p></li>
+</ul>
 <div id="aplicação-no-r-studio-2" class="section level2 hasAnchor" number="4.1">
 <h2><span class="header-section-number">4.1</span> Aplicação no R studio<a href="delineamento-inteiramente-casualizado.html#aplicação-no-r-studio-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><strong>Planejamento e Croqui</strong></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="delineamento-inteiramente-casualizado.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co">#&#39; # Planejamento de um experimento</span></span>
-<span id="cb2-2"><a href="delineamento-inteiramente-casualizado.html#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">set.seed</span>(<span class="dv">1234</span>)</span>
-<span id="cb2-3"><a href="delineamento-inteiramente-casualizado.html#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">sample</span>(<span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>, <span class="st">&quot;C&quot;</span>, <span class="st">&quot;D&quot;</span>), <span class="dv">5</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="delineamento-inteiramente-casualizado.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co">#&#39; # Planejamento de um experimento</span></span>
+<span id="cb4-2"><a href="delineamento-inteiramente-casualizado.html#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">set.seed</span>(<span class="dv">1234</span>)</span>
+<span id="cb4-3"><a href="delineamento-inteiramente-casualizado.html#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">sample</span>(<span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>, <span class="st">&quot;C&quot;</span>, <span class="st">&quot;D&quot;</span>), <span class="dv">5</span>))</span></code></pre></div>
 <pre><code> [1] &quot;D&quot; &quot;A&quot; &quot;D&quot; &quot;C&quot; &quot;A&quot; &quot;C&quot; &quot;B&quot; &quot;D&quot; &quot;B&quot; &quot;C&quot; &quot;B&quot; &quot;B&quot; &quot;C&quot; &quot;D&quot; &quot;A&quot; &quot;D&quot; &quot;A&quot; &quot;A&quot; &quot;B&quot;
 [20] &quot;C&quot;</code></pre>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="delineamento-inteiramente-casualizado.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co">#&#39; ## Usando a biblioteca agricolae</span></span>
-<span id="cb4-2"><a href="delineamento-inteiramente-casualizado.html#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> </span>
-<span id="cb4-3"><a href="delineamento-inteiramente-casualizado.html#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="co"># Instalando</span></span>
-<span id="cb4-4"><a href="delineamento-inteiramente-casualizado.html#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="co"># install.packages(&quot;agricolae&quot;, </span></span>
-<span id="cb4-5"><a href="delineamento-inteiramente-casualizado.html#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="co">#                  dependencies = TRUE)</span></span>
-<span id="cb4-6"><a href="delineamento-inteiramente-casualizado.html#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="co"># Habilitando as funções</span></span>
-<span id="cb4-7"><a href="delineamento-inteiramente-casualizado.html#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">library</span>(agricolae)</span>
-<span id="cb4-8"><a href="delineamento-inteiramente-casualizado.html#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> trt <span class="ot">=</span> LETTERS[<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>]</span>
-<span id="cb4-9"><a href="delineamento-inteiramente-casualizado.html#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> delineamento <span class="ot">&lt;-</span> <span class="fu">design.crd</span>(trt,</span>
-<span id="cb4-10"><a href="delineamento-inteiramente-casualizado.html#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>                            <span class="at">r =</span> <span class="dv">5</span>,</span>
-<span id="cb4-11"><a href="delineamento-inteiramente-casualizado.html#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>                            <span class="at">serie =</span> <span class="dv">0</span>)</span>
-<span id="cb4-12"><a href="delineamento-inteiramente-casualizado.html#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> delineamento</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="delineamento-inteiramente-casualizado.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co">#&#39; ## Usando a biblioteca agricolae</span></span>
+<span id="cb6-2"><a href="delineamento-inteiramente-casualizado.html#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> </span>
+<span id="cb6-3"><a href="delineamento-inteiramente-casualizado.html#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="co"># Instalando</span></span>
+<span id="cb6-4"><a href="delineamento-inteiramente-casualizado.html#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="co"># install.packages(&quot;agricolae&quot;, </span></span>
+<span id="cb6-5"><a href="delineamento-inteiramente-casualizado.html#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="co">#                  dependencies = TRUE)</span></span>
+<span id="cb6-6"><a href="delineamento-inteiramente-casualizado.html#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="co"># Habilitando as funções</span></span>
+<span id="cb6-7"><a href="delineamento-inteiramente-casualizado.html#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">library</span>(agricolae)</span>
+<span id="cb6-8"><a href="delineamento-inteiramente-casualizado.html#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> trt <span class="ot">=</span> LETTERS[<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>]</span>
+<span id="cb6-9"><a href="delineamento-inteiramente-casualizado.html#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> delineamento <span class="ot">&lt;-</span> <span class="fu">design.crd</span>(trt,</span>
+<span id="cb6-10"><a href="delineamento-inteiramente-casualizado.html#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>                            <span class="at">r =</span> <span class="dv">5</span>,</span>
+<span id="cb6-11"><a href="delineamento-inteiramente-casualizado.html#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>                            <span class="at">serie =</span> <span class="dv">0</span>)</span>
+<span id="cb6-12"><a href="delineamento-inteiramente-casualizado.html#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> delineamento</span></code></pre></div>
 <pre><code>$parameters
 $parameters$design
 [1] &quot;crd&quot;
@@ -455,11 +735,11 @@ $book
 18    18 4   C
 19    19 5   A
 20    20 5   C</code></pre>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="delineamento-inteiramente-casualizado.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Graficamente</span></span>
-<span id="cb6-2"><a href="delineamento-inteiramente-casualizado.html#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> </span>
-<span id="cb6-3"><a href="delineamento-inteiramente-casualizado.html#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="co"># install.packages(&quot;agricolaeplotr&quot;, </span></span>
-<span id="cb6-4"><a href="delineamento-inteiramente-casualizado.html#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="co">#                  dependencies = TRUE)</span></span>
-<span id="cb6-5"><a href="delineamento-inteiramente-casualizado.html#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">library</span>(agricolaeplotr)</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="delineamento-inteiramente-casualizado.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Graficamente</span></span>
+<span id="cb8-2"><a href="delineamento-inteiramente-casualizado.html#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> </span>
+<span id="cb8-3"><a href="delineamento-inteiramente-casualizado.html#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="co"># install.packages(&quot;agricolaeplotr&quot;, </span></span>
+<span id="cb8-4"><a href="delineamento-inteiramente-casualizado.html#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="co">#                  dependencies = TRUE)</span></span>
+<span id="cb8-5"><a href="delineamento-inteiramente-casualizado.html#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">library</span>(agricolaeplotr)</span></code></pre></div>
 <pre><code>The legacy packages maptools, rgdal, and rgeos, underpinning the sp package,
 which was just loaded, will retire in October 2023.
 Please refer to R-spatial evolution reports for details, especially
@@ -473,15 +753,15 @@ Attaching package: &#39;agricolaeplotr&#39;</code></pre>
 <pre><code>The following object is masked from &#39;package:base&#39;:
 
     summary</code></pre>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="delineamento-inteiramente-casualizado.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">plot_design_crd</span>(delineamento,</span>
-<span id="cb10-2"><a href="delineamento-inteiramente-casualizado.html#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>                 <span class="at">ncols =</span> <span class="dv">4</span>,</span>
-<span id="cb10-3"><a href="delineamento-inteiramente-casualizado.html#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>                 <span class="at">nrows =</span> <span class="dv">5</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="delineamento-inteiramente-casualizado.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Para montar um croqui precisamos de um gride, definido por linhas e colunas</span></span>
-<span id="cb11-2"><a href="delineamento-inteiramente-casualizado.html#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> delineamento<span class="sc">$</span>book<span class="sc">$</span>Linha <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="at">each =</span> <span class="dv">4</span>)</span>
-<span id="cb11-3"><a href="delineamento-inteiramente-casualizado.html#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> delineamento<span class="sc">$</span>book<span class="sc">$</span>Coluna <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>, <span class="at">times =</span> <span class="dv">5</span>)</span>
-<span id="cb11-4"><a href="delineamento-inteiramente-casualizado.html#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> </span>
-<span id="cb11-5"><a href="delineamento-inteiramente-casualizado.html#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> delineamento<span class="sc">$</span>book</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="delineamento-inteiramente-casualizado.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">plot_design_crd</span>(delineamento,</span>
+<span id="cb12-2"><a href="delineamento-inteiramente-casualizado.html#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>                 <span class="at">ncols =</span> <span class="dv">4</span>,</span>
+<span id="cb12-3"><a href="delineamento-inteiramente-casualizado.html#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>                 <span class="at">nrows =</span> <span class="dv">5</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="delineamento-inteiramente-casualizado.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Para montar um croqui precisamos de um gride, definido por linhas e colunas</span></span>
+<span id="cb13-2"><a href="delineamento-inteiramente-casualizado.html#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> delineamento<span class="sc">$</span>book<span class="sc">$</span>Linha <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="at">each =</span> <span class="dv">4</span>)</span>
+<span id="cb13-3"><a href="delineamento-inteiramente-casualizado.html#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> delineamento<span class="sc">$</span>book<span class="sc">$</span>Coluna <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>, <span class="at">times =</span> <span class="dv">5</span>)</span>
+<span id="cb13-4"><a href="delineamento-inteiramente-casualizado.html#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> </span>
+<span id="cb13-5"><a href="delineamento-inteiramente-casualizado.html#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> delineamento<span class="sc">$</span>book</span></code></pre></div>
 <pre><code>   plots r trt Linha Coluna
 1      1 1   C     1      1
 2      2 1   B     1      2
@@ -504,11 +784,11 @@ Attaching package: &#39;agricolaeplotr&#39;</code></pre>
 19    19 5   A     5      3
 20    20 5   C     5      4</code></pre>
 <p><strong>Importando dados de excel .xlsx</strong></p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="delineamento-inteiramente-casualizado.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co">#Deve-se importar os arquivos .xlsx para o Rstudio</span></span>
-<span id="cb13-2"><a href="delineamento-inteiramente-casualizado.html#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">library</span>(readxl)</span>
-<span id="cb13-3"><a href="delineamento-inteiramente-casualizado.html#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> dados1 <span class="ot">&lt;-</span> <span class="fu">read_xlsx</span>(<span class="st">&quot;dados/aula2.2.xlsx&quot;</span>)</span>
-<span id="cb13-4"><a href="delineamento-inteiramente-casualizado.html#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> </span>
-<span id="cb13-5"><a href="delineamento-inteiramente-casualizado.html#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> knitr<span class="sc">::</span><span class="fu">kable</span>(dados1)</span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="delineamento-inteiramente-casualizado.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co">#Deve-se importar os arquivos .xlsx para o Rstudio</span></span>
+<span id="cb15-2"><a href="delineamento-inteiramente-casualizado.html#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">library</span>(readxl)</span>
+<span id="cb15-3"><a href="delineamento-inteiramente-casualizado.html#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> dados1 <span class="ot">&lt;-</span> <span class="fu">read_xlsx</span>(<span class="st">&quot;dados/aula2.2.xlsx&quot;</span>)</span>
+<span id="cb15-4"><a href="delineamento-inteiramente-casualizado.html#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> </span>
+<span id="cb15-5"><a href="delineamento-inteiramente-casualizado.html#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> knitr<span class="sc">::</span><span class="fu">kable</span>(dados1)</span></code></pre></div>
 <table>
 <thead>
 <tr class="header">
@@ -600,43 +880,43 @@ Attaching package: &#39;agricolaeplotr&#39;</code></pre>
 </tbody>
 </table>
 <p><strong>Análise descritiva dos dados</strong></p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="delineamento-inteiramente-casualizado.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">library</span>(ggplot2)</span>
-<span id="cb14-2"><a href="delineamento-inteiramente-casualizado.html#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">ggplot</span>(dados1, </span>
-<span id="cb14-3"><a href="delineamento-inteiramente-casualizado.html#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>        <span class="fu">aes</span>(<span class="at">x =</span> trat, </span>
-<span id="cb14-4"><a href="delineamento-inteiramente-casualizado.html#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>            <span class="at">y =</span> y)) <span class="sc">+</span></span>
-<span id="cb14-5"><a href="delineamento-inteiramente-casualizado.html#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb14-6"><a href="delineamento-inteiramente-casualizado.html#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">geom_point</span>(<span class="at">stat =</span> <span class="st">&quot;summary&quot;</span>,</span>
-<span id="cb14-7"><a href="delineamento-inteiramente-casualizado.html#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>              <span class="at">fun =</span> mean,</span>
-<span id="cb14-8"><a href="delineamento-inteiramente-casualizado.html#cb14-8" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>              <span class="at">col =</span> <span class="st">&quot;red&quot;</span>) <span class="sc">+</span></span>
-<span id="cb14-9"><a href="delineamento-inteiramente-casualizado.html#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">annotate</span>(<span class="st">&quot;point&quot;</span>, </span>
-<span id="cb14-10"><a href="delineamento-inteiramente-casualizado.html#cb14-10" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>            <span class="at">x =</span> dados1<span class="sc">$</span>trat, </span>
-<span id="cb14-11"><a href="delineamento-inteiramente-casualizado.html#cb14-11" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>            <span class="at">y =</span> <span class="fl">26.75</span>, </span>
-<span id="cb14-12"><a href="delineamento-inteiramente-casualizado.html#cb14-12" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>            <span class="at">colour =</span> <span class="st">&quot;blue&quot;</span>) <span class="sc">+</span></span>
-<span id="cb14-13"><a href="delineamento-inteiramente-casualizado.html#cb14-13" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">xlab</span>(<span class="st">&quot;tratamentos&quot;</span>) <span class="sc">+</span></span>
-<span id="cb14-14"><a href="delineamento-inteiramente-casualizado.html#cb14-14" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">ylab</span>(<span class="st">&quot;produtividade&quot;</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="delineamento-inteiramente-casualizado.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">ggplot</span>(dados1,</span>
-<span id="cb15-2"><a href="delineamento-inteiramente-casualizado.html#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>        <span class="fu">aes</span>(<span class="at">x =</span> trat,</span>
-<span id="cb15-3"><a href="delineamento-inteiramente-casualizado.html#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>            <span class="at">y =</span> y)) <span class="sc">+</span></span>
-<span id="cb15-4"><a href="delineamento-inteiramente-casualizado.html#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">geom_boxplot</span>()</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-4-2.png" width="672" /></p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="delineamento-inteiramente-casualizado.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co">#&#39; ## Estatísticas descritivas</span></span>
-<span id="cb16-2"><a href="delineamento-inteiramente-casualizado.html#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> n <span class="ot">&lt;-</span> <span class="fu">with</span>(dados1, <span class="fu">tapply</span>(y,trat, length))</span>
-<span id="cb16-3"><a href="delineamento-inteiramente-casualizado.html#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> soma <span class="ot">&lt;-</span> <span class="fu">with</span>(dados1, <span class="fu">tapply</span>(y,trat,sum))</span>
-<span id="cb16-4"><a href="delineamento-inteiramente-casualizado.html#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> media <span class="ot">&lt;-</span> <span class="fu">with</span>(dados1, <span class="fu">tapply</span>(y,trat,mean))</span>
-<span id="cb16-5"><a href="delineamento-inteiramente-casualizado.html#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> variancia <span class="ot">&lt;-</span> <span class="fu">with</span>(dados1, <span class="fu">tapply</span>(y,trat,var))</span>
-<span id="cb16-6"><a href="delineamento-inteiramente-casualizado.html#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> desv.padr <span class="ot">&lt;-</span> <span class="fu">with</span>(dados1, <span class="fu">tapply</span>(y,trat,sd))</span>
-<span id="cb16-7"><a href="delineamento-inteiramente-casualizado.html#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> dist.int <span class="ot">&lt;-</span> <span class="fu">with</span>(dados1, <span class="fu">tapply</span>(y,trat,IQR))</span></code></pre></div>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="delineamento-inteiramente-casualizado.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co">#&#39; Criando uma função que calcula a amplitude</span></span>
-<span id="cb17-2"><a href="delineamento-inteiramente-casualizado.html#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> f1 <span class="ot">&lt;-</span> <span class="cf">function</span>(x) <span class="fu">max</span>(x)<span class="sc">-</span><span class="fu">min</span>(x)</span>
-<span id="cb17-3"><a href="delineamento-inteiramente-casualizado.html#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> amplitude <span class="ot">&lt;-</span> <span class="fu">with</span>(dados1, <span class="fu">tapply</span>(y,trat,f1))</span>
-<span id="cb17-4"><a href="delineamento-inteiramente-casualizado.html#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> </span>
-<span id="cb17-5"><a href="delineamento-inteiramente-casualizado.html#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> resumo <span class="ot">&lt;-</span> <span class="fu">rbind</span>(n, soma, media, variancia,</span>
-<span id="cb17-6"><a href="delineamento-inteiramente-casualizado.html#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>                 desv.padr, amplitude,dist.int)</span>
-<span id="cb17-7"><a href="delineamento-inteiramente-casualizado.html#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">rownames</span>(resumo) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;n&quot;</span>, <span class="st">&quot;Soma&quot;</span>, <span class="st">&quot;Média&quot;</span>, </span>
-<span id="cb17-8"><a href="delineamento-inteiramente-casualizado.html#cb17-8" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>                       <span class="st">&quot;Variância&quot;</span>, <span class="st">&quot;Desvio-padrão&quot;</span>, </span>
-<span id="cb17-9"><a href="delineamento-inteiramente-casualizado.html#cb17-9" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>                       <span class="st">&quot;Amplitude&quot;</span>, <span class="st">&quot;Amplitude Interquartílica&quot;</span>)</span>
-<span id="cb17-10"><a href="delineamento-inteiramente-casualizado.html#cb17-10" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">round</span>(resumo,<span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="delineamento-inteiramente-casualizado.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">library</span>(ggplot2)</span>
+<span id="cb16-2"><a href="delineamento-inteiramente-casualizado.html#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">ggplot</span>(dados1, </span>
+<span id="cb16-3"><a href="delineamento-inteiramente-casualizado.html#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>        <span class="fu">aes</span>(<span class="at">x =</span> trat, </span>
+<span id="cb16-4"><a href="delineamento-inteiramente-casualizado.html#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>            <span class="at">y =</span> y)) <span class="sc">+</span></span>
+<span id="cb16-5"><a href="delineamento-inteiramente-casualizado.html#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb16-6"><a href="delineamento-inteiramente-casualizado.html#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">geom_point</span>(<span class="at">stat =</span> <span class="st">&quot;summary&quot;</span>,</span>
+<span id="cb16-7"><a href="delineamento-inteiramente-casualizado.html#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>              <span class="at">fun =</span> mean,</span>
+<span id="cb16-8"><a href="delineamento-inteiramente-casualizado.html#cb16-8" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>              <span class="at">col =</span> <span class="st">&quot;red&quot;</span>) <span class="sc">+</span></span>
+<span id="cb16-9"><a href="delineamento-inteiramente-casualizado.html#cb16-9" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">annotate</span>(<span class="st">&quot;point&quot;</span>, </span>
+<span id="cb16-10"><a href="delineamento-inteiramente-casualizado.html#cb16-10" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>            <span class="at">x =</span> dados1<span class="sc">$</span>trat, </span>
+<span id="cb16-11"><a href="delineamento-inteiramente-casualizado.html#cb16-11" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>            <span class="at">y =</span> <span class="fl">26.75</span>, </span>
+<span id="cb16-12"><a href="delineamento-inteiramente-casualizado.html#cb16-12" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>            <span class="at">colour =</span> <span class="st">&quot;blue&quot;</span>) <span class="sc">+</span></span>
+<span id="cb16-13"><a href="delineamento-inteiramente-casualizado.html#cb16-13" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">xlab</span>(<span class="st">&quot;tratamentos&quot;</span>) <span class="sc">+</span></span>
+<span id="cb16-14"><a href="delineamento-inteiramente-casualizado.html#cb16-14" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">ylab</span>(<span class="st">&quot;produtividade&quot;</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="delineamento-inteiramente-casualizado.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">ggplot</span>(dados1,</span>
+<span id="cb17-2"><a href="delineamento-inteiramente-casualizado.html#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>        <span class="fu">aes</span>(<span class="at">x =</span> trat,</span>
+<span id="cb17-3"><a href="delineamento-inteiramente-casualizado.html#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>            <span class="at">y =</span> y)) <span class="sc">+</span></span>
+<span id="cb17-4"><a href="delineamento-inteiramente-casualizado.html#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">geom_boxplot</span>()</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-5-2.png" width="672" /></p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="delineamento-inteiramente-casualizado.html#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co">#&#39; ## Estatísticas descritivas</span></span>
+<span id="cb18-2"><a href="delineamento-inteiramente-casualizado.html#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> n <span class="ot">&lt;-</span> <span class="fu">with</span>(dados1, <span class="fu">tapply</span>(y,trat, length))</span>
+<span id="cb18-3"><a href="delineamento-inteiramente-casualizado.html#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> soma <span class="ot">&lt;-</span> <span class="fu">with</span>(dados1, <span class="fu">tapply</span>(y,trat,sum))</span>
+<span id="cb18-4"><a href="delineamento-inteiramente-casualizado.html#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> media <span class="ot">&lt;-</span> <span class="fu">with</span>(dados1, <span class="fu">tapply</span>(y,trat,mean))</span>
+<span id="cb18-5"><a href="delineamento-inteiramente-casualizado.html#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> variancia <span class="ot">&lt;-</span> <span class="fu">with</span>(dados1, <span class="fu">tapply</span>(y,trat,var))</span>
+<span id="cb18-6"><a href="delineamento-inteiramente-casualizado.html#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> desv.padr <span class="ot">&lt;-</span> <span class="fu">with</span>(dados1, <span class="fu">tapply</span>(y,trat,sd))</span>
+<span id="cb18-7"><a href="delineamento-inteiramente-casualizado.html#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> dist.int <span class="ot">&lt;-</span> <span class="fu">with</span>(dados1, <span class="fu">tapply</span>(y,trat,IQR))</span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="delineamento-inteiramente-casualizado.html#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co">#&#39; Criando uma função que calcula a amplitude</span></span>
+<span id="cb19-2"><a href="delineamento-inteiramente-casualizado.html#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> f1 <span class="ot">&lt;-</span> <span class="cf">function</span>(x) <span class="fu">max</span>(x)<span class="sc">-</span><span class="fu">min</span>(x)</span>
+<span id="cb19-3"><a href="delineamento-inteiramente-casualizado.html#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> amplitude <span class="ot">&lt;-</span> <span class="fu">with</span>(dados1, <span class="fu">tapply</span>(y,trat,f1))</span>
+<span id="cb19-4"><a href="delineamento-inteiramente-casualizado.html#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> </span>
+<span id="cb19-5"><a href="delineamento-inteiramente-casualizado.html#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> resumo <span class="ot">&lt;-</span> <span class="fu">rbind</span>(n, soma, media, variancia,</span>
+<span id="cb19-6"><a href="delineamento-inteiramente-casualizado.html#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>                 desv.padr, amplitude,dist.int)</span>
+<span id="cb19-7"><a href="delineamento-inteiramente-casualizado.html#cb19-7" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">rownames</span>(resumo) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;n&quot;</span>, <span class="st">&quot;Soma&quot;</span>, <span class="st">&quot;Média&quot;</span>, </span>
+<span id="cb19-8"><a href="delineamento-inteiramente-casualizado.html#cb19-8" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>                       <span class="st">&quot;Variância&quot;</span>, <span class="st">&quot;Desvio-padrão&quot;</span>, </span>
+<span id="cb19-9"><a href="delineamento-inteiramente-casualizado.html#cb19-9" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>                       <span class="st">&quot;Amplitude&quot;</span>, <span class="st">&quot;Amplitude Interquartílica&quot;</span>)</span>
+<span id="cb19-10"><a href="delineamento-inteiramente-casualizado.html#cb19-10" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">round</span>(resumo,<span class="dv">3</span>)</span></code></pre></div>
 <pre><code>                               A       B       C      D
 n                           5.00   5.000   5.000   5.00
 Soma                      115.00 135.000 130.000 155.00
@@ -646,13 +926,13 @@ Desvio-padrão               2.55   2.739   2.739   2.55
 Amplitude                   6.00   7.000   7.000   6.00
 Amplitude Interquartílica   4.00   3.000   3.000   4.00</code></pre>
 <p><strong>Análise da variância (ANOVA)</strong></p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="delineamento-inteiramente-casualizado.html#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co">#&#39; ## Análise de variância  </span></span>
-<span id="cb19-2"><a href="delineamento-inteiramente-casualizado.html#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="co">#&#39; </span></span>
-<span id="cb19-3"><a href="delineamento-inteiramente-casualizado.html#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="co">#&#39; $H_0$: $\mu_1 = \mu_2 = \mu_3 = \mu_4$ *versus* </span></span>
-<span id="cb19-4"><a href="delineamento-inteiramente-casualizado.html#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="co">#&#39; $H_1:$ Pelo menos duas médias de tratamentos diferem entre si.</span></span>
-<span id="cb19-5"><a href="delineamento-inteiramente-casualizado.html#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="co">#&#39; </span></span>
-<span id="cb19-6"><a href="delineamento-inteiramente-casualizado.html#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> modelo <span class="ot">&lt;-</span> <span class="fu">aov</span>(y <span class="sc">~</span> trat, dados1)</span>
-<span id="cb19-7"><a href="delineamento-inteiramente-casualizado.html#cb19-7" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">anova</span>(modelo)</span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="delineamento-inteiramente-casualizado.html#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co">#&#39; ## Análise de variância  </span></span>
+<span id="cb21-2"><a href="delineamento-inteiramente-casualizado.html#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="co">#&#39; </span></span>
+<span id="cb21-3"><a href="delineamento-inteiramente-casualizado.html#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="co">#&#39; $H_0$: $\mu_1 = \mu_2 = \mu_3 = \mu_4$ *versus* </span></span>
+<span id="cb21-4"><a href="delineamento-inteiramente-casualizado.html#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="co">#&#39; $H_1:$ Pelo menos duas médias de tratamentos diferem entre si.</span></span>
+<span id="cb21-5"><a href="delineamento-inteiramente-casualizado.html#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="co">#&#39; </span></span>
+<span id="cb21-6"><a href="delineamento-inteiramente-casualizado.html#cb21-6" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> modelo <span class="ot">&lt;-</span> <span class="fu">aov</span>(y <span class="sc">~</span> trat, dados1)</span>
+<span id="cb21-7"><a href="delineamento-inteiramente-casualizado.html#cb21-7" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">anova</span>(modelo)</span></code></pre></div>
 <pre><code>Analysis of Variance Table
 
 Response: y
